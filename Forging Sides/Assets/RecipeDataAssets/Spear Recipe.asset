@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Spear Recipe
+  m_EditorClassIdentifier: Assembly-CSharp::RecipeData
+  recipeName: 
+  requiredParts:
+  - {fileID: 11400000, guid: a850216be4bcfbe48b324f711607172d, type: 2}
+  - {fileID: 11400000, guid: 2b7d0144522d79c4fa7f683d50516e5a, type: 2}
+  craftedWeapon: {fileID: 11400000, guid: 5b31e1e0bb05f114aa8dcf00f59ef139, type: 2}

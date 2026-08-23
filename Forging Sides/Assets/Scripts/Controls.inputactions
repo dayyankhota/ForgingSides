@@ -27,7 +27,16 @@
                 {
                     "name": "Grab",
                     "type": "Button",
-                    "id": "3242f2d8-6dd9-4007-826f-72bddf5940ad",
+                    "id": "b28a0c9b-fd60-4b41-bfe2-3bd29ee38096",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "915a5528-0797-4304-a4e5-f13a1233c07b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -125,12 +134,23 @@
                 },
                 {
                     "name": "",
-                    "id": "337e5458-9633-46ad-9c51-78d5f529b415",
-                    "path": "<Keyboard>/e",
+                    "id": "9bf9fcaf-1468-4c66-85b7-e937d47f787d",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "24825b4a-7199-408d-9c80-ed959c54bccb",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e521f45b9717684d9be46423059b2df, type: 3}
-  m_Name: Motor
+  m_Name: Hammer
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
-  physicalPrefab: {fileID: 0}
+  itemName: Hammer
+  physicalPrefab: {fileID: 7792964888142561633, guid: 50415fb8ea2637e43a93cdb7a1589a67, type: 3}

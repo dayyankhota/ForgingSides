@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7693854122963948594
+--- !u!1 &3342736788624751497
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1003095536879712146}
-  - component: {fileID: 2710733239880344640}
-  - component: {fileID: 6008383546059321049}
-  - component: {fileID: 1138999646338495737}
-  - component: {fileID: 316614273289071986}
-  - component: {fileID: 1342959397251084046}
+  - component: {fileID: 3747619224169613769}
+  - component: {fileID: 1303471136742533679}
+  - component: {fileID: 7285233739406787671}
+  - component: {fileID: 1394638990326563475}
+  - component: {fileID: 9202388252750428673}
+  - component: {fileID: 5760965260305812374}
   m_Layer: 6
-  m_Name: Spear
+  m_Name: Steel Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1003095536879712146
+--- !u!4 &3747619224169613769
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693854122963948594}
+  m_GameObject: {fileID: 3342736788624751497}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.63388, y: 1.54, z: 0.41308}
-  m_LocalScale: {x: 0.2, y: 1, z: 0.2}
+  m_LocalPosition: {x: -0.28015, y: 0, z: -1.31763}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2710733239880344640
+--- !u!33 &1303471136742533679
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693854122963948594}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6008383546059321049
+  m_GameObject: {fileID: 3342736788624751497}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &7285233739406787671
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693854122963948594}
+  m_GameObject: {fileID: 3342736788624751497}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -93,13 +93,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1138999646338495737
-CapsuleCollider:
+--- !u!65 &1394638990326563475
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693854122963948594}
+  m_GameObject: {fileID: 3342736788624751497}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -111,18 +111,16 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!54 &316614273289071986
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &9202388252750428673
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693854122963948594}
+  m_GameObject: {fileID: 3342736788624751497}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -143,16 +141,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1342959397251084046
+--- !u!114 &5760965260305812374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693854122963948594}
+  m_GameObject: {fileID: 3342736788624751497}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ec14b81782966a45bc0de29372fb6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CraftingPart
-  itemData: {fileID: 11400000, guid: 5b31e1e0bb05f114aa8dcf00f59ef139, type: 2}
+  itemData: {fileID: 11400000, guid: 7009539e87d0ac941a47c2930e29db5f, type: 2}

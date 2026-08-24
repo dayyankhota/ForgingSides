@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Brass_Tube
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Brass Tube
-  physicalPrefab: {fileID: 0}
+  physicalPrefab: {fileID: 3730672186971338943, guid: 6ac067e2ca7520245bf45f7ae7b0a7d3, type: 3}

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,10 @@ public class PlayerActionController : MonoBehaviour
     public float interactionRange = 3f;
     public LayerMask grabbableLayer;
     public LayerMask interactableLayer;
+
+    [Header("Cooldowns")]
+    public float interactCooldown = 0.5f;
+    private float lastInteractTime = 0f;
 
     private GameObject heldObject;
     private Rigidbody heldObjectRb;
@@ -24,15 +29,20 @@ public class PlayerActionController : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.started && heldObject == null) //Only allows pickup when hand is empty
-            Debug.Log("Interact button was pressed and hands are empty!");
+       
+        if (context.started && heldObject == null)
         {
-            if(Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, interactionRange, interactableLayer))
+            if (Time.time - lastInteractTime >= interactCooldown)
             {
-                ItemDispenser dispenser = hit.collider.GetComponent<ItemDispenser>();
-                if (dispenser != null)
+                lastInteractTime = Time.time;
+
+                if (Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, interactionRange, interactableLayer))
                 {
-                    dispenser.DispenseItem();
+                    ItemDispenser dispenser = hit.collider.GetComponent<ItemDispenser>();
+                    if (dispenser != null)
+                    {
+                        dispenser.DispenseItem();
+                    }
                 }
             }
         }
@@ -60,5 +70,41 @@ public class PlayerActionController : MonoBehaviour
         if (heldObjectRb != null) heldObjectRb.isKinematic = false;
         heldObject = null;
         heldObjectRb = null;
+    }
+
+    [Header("UI Feedback")]
+    public TextMeshProUGUI itemNameText;
+
+    private void Update()
+    {
+        if (heldObject == null)
+        {
+            if (Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, interactionRange, grabbableLayer | interactableLayer))
+            {
+                CraftingPart part = hit.collider.GetComponent<CraftingPart>();
+                ItemDispenser dispenser = hit.collider.GetComponent<ItemDispenser>();
+
+                if (part != null && part.itemData != null)
+                {
+                    itemNameText.text = part.itemData.itemName;
+                }
+                else if (dispenser != null && dispenser.itemToDispense != null)
+                {
+                    itemNameText.text = dispenser.itemToDispense.itemName;
+                }
+                else
+                {
+                    itemNameText.text = ""; 
+                }
+            }
+            else 
+            {
+                itemNameText.text = "";
+            }
+        }
+        else
+        {
+            itemNameText.text = "";
+        }
     }
 }

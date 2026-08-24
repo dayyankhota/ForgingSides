@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: Spear Recipe
+  m_Name: Revolver Recipe
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
-  recipeName: Spear
+  recipeName: Revolver
   requiredParts:
-  - {fileID: 11400000, guid: a850216be4bcfbe48b324f711607172d, type: 2}
-  - {fileID: 11400000, guid: 2b7d0144522d79c4fa7f683d50516e5a, type: 2}
-  craftedWeapon: {fileID: 11400000, guid: 5b31e1e0bb05f114aa8dcf00f59ef139, type: 2}
+  - {fileID: 11400000, guid: b278c16ab51d94e488e33f9709425ee5, type: 2}
+  - {fileID: 11400000, guid: f8f13ad411e720149ad9a469c3206339, type: 2}
+  craftedWeapon: {fileID: 11400000, guid: 95e4a419035993f4f84af5a82da8b5a3, type: 2}

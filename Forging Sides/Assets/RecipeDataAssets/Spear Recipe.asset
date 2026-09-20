@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 45ae872e590f33e40bc2159021cd3e5b, type: 3}
   m_Name: Spear Recipe
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
   recipeName: Spear

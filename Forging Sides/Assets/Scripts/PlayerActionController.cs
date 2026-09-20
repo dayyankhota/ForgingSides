@@ -1,9 +1,14 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerActionController : MonoBehaviour
 {
+    
+    public static bool GameIsPaused = false; 
+    public GameObject pauseMenuUI; 
+
     public Transform playerCamera;
     public Transform holdPoint;
 
@@ -72,6 +77,21 @@ public class PlayerActionController : MonoBehaviour
         heldObjectRb = null;
     }
 
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+         pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None; 
+
+
+      
+    }
+
+
     [Header("UI Feedback")]
     public TextMeshProUGUI itemNameText;
 
@@ -107,4 +127,8 @@ public class PlayerActionController : MonoBehaviour
             itemNameText.text = "";
         }
     }
+   
+
+
+
 }

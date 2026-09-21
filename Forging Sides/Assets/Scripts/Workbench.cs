@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Workbench : MonoBehaviour
 {
+      [SerializeField] ParticleSystem sparkParticle = null;
     public List<RecipeData> knownRecipes;
     public Transform spawnPoint;
     private List<CraftingPart> partsOnTable = new List<CraftingPart>();
@@ -35,6 +36,7 @@ public class Workbench : MonoBehaviour
                 foreach (var part in partsOnTable) Destroy(part.gameObject);
                 partsOnTable.Clear();
                 Instantiate(recipe.craftedWeapon.physicalPrefab, spawnPoint.position, spawnPoint.rotation);
+                sparkParticle.Play();
                 return;
             }
         }

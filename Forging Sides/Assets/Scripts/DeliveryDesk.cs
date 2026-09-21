@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class DeliveryDesk : MonoBehaviour
 {
+    [SerializeField] ParticleSystem coinParticle = null;
     private bool isGameOver = false;
     [Header("Orders")]
     public List<RecipeData> possibleOrders;
@@ -110,7 +111,7 @@ public class DeliveryDesk : MonoBehaviour
         else
         {
             orderTextUI.text = "Order Completed! (" + completedOrders + "/" + ordersToWin + ")";
-
+            coinParticle.Play();
             yield return new WaitForSeconds(successMessageDuration);
 
             StartCoroutine(SpawnNewCustomer());

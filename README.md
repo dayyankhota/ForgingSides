@@ -14,7 +14,7 @@ the parts to make weapons are as follows:
 Stick
 Spear Tube
 Spear Tip
-Steel Bar
+Steel Bar (made by melting raw steel in the forge) 
 Revolver Grip
 
 the weapon recipes are as follows:

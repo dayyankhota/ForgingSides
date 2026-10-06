@@ -83,6 +83,8 @@ public class PlayerActionController : MonoBehaviour
             {
                 CraftingPart part = hit.collider.GetComponent<CraftingPart>();
                 ItemDispenser dispenser = hit.collider.GetComponent<ItemDispenser>();
+                Workbench workbench = hit.collider.GetComponent<Workbench>();
+                Forge forge = hit.collider.GetComponent<Forge>();
 
                 if (part != null && part.itemData != null)
                 {
@@ -92,12 +94,21 @@ public class PlayerActionController : MonoBehaviour
                 {
                     itemNameText.text = dispenser.itemToDispense.itemName;
                 }
+                else if (workbench != null)
+                {
+                    itemNameText.text = "Workbench";
+                }
+                else if (forge != null)
+                {
+                    if (forge.IsSmelting()) itemNameText.text = "Smelting...";
+                    else itemNameText.text = "Forge";
+                }
                 else
                 {
-                    itemNameText.text = ""; 
+                    itemNameText.text = "";
                 }
             }
-            else 
+            else
             {
                 itemNameText.text = "";
             }

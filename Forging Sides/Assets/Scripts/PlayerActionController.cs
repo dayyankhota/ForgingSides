@@ -67,7 +67,16 @@ public class PlayerActionController : MonoBehaviour
     private void Drop()
     {
         heldObject.transform.parent = null;
+        Vector3 rayDirection = holdPoint.position - playerCamera.position;
+        float distance = Vector3.Distance(playerCamera.position, holdPoint.position);
+
+        if (Physics.Raycast(playerCamera.position, rayDirection.normalized, out RaycastHit hit, distance, ~grabbableLayer))
+        {
+            heldObject.transform.position = hit.point - (rayDirection.normalized * 0.1f);
+        }
+
         if (heldObjectRb != null) heldObjectRb.isKinematic = false;
+
         heldObject = null;
         heldObjectRb = null;
     }

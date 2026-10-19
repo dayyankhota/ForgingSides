@@ -20,6 +20,8 @@ public class PlayerActionController : MonoBehaviour
 
     public void OnGrab(InputAction.CallbackContext context)
     {
+        if (PauseMenuManager.isPaused) return;
+
         if (context.started)
         {
             if (heldObject == null) TryGrab();
@@ -29,7 +31,7 @@ public class PlayerActionController : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-       
+        if (PauseMenuManager.isPaused) return;
         if (context.started && heldObject == null)
         {
             if (Time.time - lastInteractTime >= interactCooldown)
@@ -86,6 +88,8 @@ public class PlayerActionController : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenuManager.isPaused) return;
+
         if (heldObject == null)
         {
             if (Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit hit, interactionRange, grabbableLayer | interactableLayer))

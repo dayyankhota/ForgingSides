@@ -3,10 +3,20 @@ using UnityEngine;
 
 public class Workbench : MonoBehaviour
 {
+      AudioManager audioManager;
       [SerializeField] ParticleSystem sparkParticle = null;
     public List<RecipeData> knownRecipes;
     public Transform spawnPoint;
     private List<CraftingPart> partsOnTable = new List<CraftingPart>();
+
+
+     private void Start()
+    {
+        
+  audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+          
+           
+    }    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,6 +47,7 @@ public class Workbench : MonoBehaviour
                 partsOnTable.Clear();
                 Instantiate(recipe.craftedWeapon.physicalPrefab, spawnPoint.position, spawnPoint.rotation);
                 sparkParticle.Play();
+                audioManager.PlaySFX(audioManager.metalClang);
                 return;
             }
         }

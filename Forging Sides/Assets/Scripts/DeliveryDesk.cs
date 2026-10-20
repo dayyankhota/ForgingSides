@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class DeliveryDesk : MonoBehaviour
 {
+        private Animator animator;
+
     [SerializeField] ParticleSystem coinParticle = null;
     private bool isGameOver = false;
     [Header("Orders")]
@@ -43,6 +45,8 @@ public class DeliveryDesk : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnNewCustomer());
+        animator= GetComponent<Animator>();
+        animator.SetBool("Idle", true);
     }
 
     private IEnumerator SpawnNewCustomer()

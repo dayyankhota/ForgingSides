@@ -44,9 +44,9 @@ public class DeliveryDesk : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         StartCoroutine(SpawnNewCustomer());
-        animator= GetComponent<Animator>();
-        animator.SetBool("Idle", true);
+
     }
 
     private IEnumerator SpawnNewCustomer()
@@ -54,11 +54,14 @@ public class DeliveryDesk : MonoBehaviour
         orderTextUI.text = "Waiting for customer...";
         yield return new WaitForSeconds(timeBetweenCustomers);
 
-      
+
         if (npcPrefab != null)
         {
             currentNPC = Instantiate(npcPrefab, npcSpawnPoint.position, npcSpawnPoint.rotation);
-        }
+
+      
+            
+        }    
 
         // Pick a random recipe
         currentOrder = possibleOrders[Random.Range(0, possibleOrders.Count)];

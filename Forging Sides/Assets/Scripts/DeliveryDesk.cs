@@ -44,7 +44,6 @@ public class DeliveryDesk : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1f;
         StartCoroutine(SpawnNewCustomer());
 
     }

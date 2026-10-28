@@ -38779,17 +38779,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190614025}
-  m_LocalRotation: {x: -0, y: 0.14742778, z: -0, w: 0.98907286}
-  m_LocalPosition: {x: 0, y: 0, z: -680.2}
-  m_LocalScale: {x: 0.63697016, y: 0.4840015, z: 0.61698}
+  m_LocalRotation: {x: -0, y: 0.21862301, z: -0, w: 0.97580945}
+  m_LocalPosition: {x: 0, y: 0, z: -424}
+  m_LocalScale: {x: 1.7283332, y: 1.3132733, z: 1.6740925}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 471009594}
   m_Father: {fileID: 1466783545}
-  m_LocalEulerAnglesHint: {x: 0, y: 16.956, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 25.256, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.6, y: -4.2}
+  m_AnchoredPosition: {x: 226, y: -17.147}
   m_SizeDelta: {x: 300, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1190614027
@@ -38805,7 +38805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -42708,17 +42708,17 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1826347125}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 20
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
+  m_AdditionalShaderChannelsFlag: -1
+  m_UpdateRectTransformForStandalone: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1466783545
 RectTransform:
@@ -62587,9 +62587,9 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1466783545}
   - {fileID: 770644916}
   - {fileID: 1826347128}
-  - {fileID: 1466783545}
   - {fileID: 877908916}
   - {fileID: 2142450003}
   - {fileID: 30406409}

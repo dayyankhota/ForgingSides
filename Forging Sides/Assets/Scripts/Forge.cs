@@ -13,29 +13,25 @@ public class Forge : MonoBehaviour
     }
 
     [Header("Forge Setup")]
-
     public List<SmeltingRecipe> recipes;
     public Transform spawnPoint;
 
-
-    // Tracks which items are currently being smelted
     private Dictionary<CraftingPart, Coroutine> smeltingProcesses = new Dictionary<CraftingPart, Coroutine>();
 
     private void OnTriggerEnter(Collider other)
     {
         CraftingPart part = other.GetComponent<CraftingPart>();
 
-        // If an item entered the forge and isn't already being processed
         if (part != null && !smeltingProcesses.ContainsKey(part))
         {
             SmeltingRecipe matchedRecipe = GetRecipe(part.itemData);
 
             if (matchedRecipe != null)
             {
-
                 Coroutine process = StartCoroutine(SmeltRoutine(part, matchedRecipe));
                 smeltingProcesses.Add(part, process);
 
+                TutorialEvents.Raise(TutorialEventType.SmeltingStarted, part.itemData);
             }
         }
     }
@@ -48,13 +44,11 @@ public class Forge : MonoBehaviour
         {
             StopCoroutine(smeltingProcesses[part]);
             smeltingProcesses.Remove(part);
-
         }
     }
 
     private IEnumerator SmeltRoutine(CraftingPart part, SmeltingRecipe recipe)
     {
-
         yield return new WaitForSeconds(recipe.timeToSmelt);
 
         smeltingProcesses.Remove(part);
@@ -62,6 +56,7 @@ public class Forge : MonoBehaviour
         Destroy(part.gameObject);
         Instantiate(recipe.smeltedMetal.physicalPrefab, spawnPoint.position, spawnPoint.rotation);
 
+        TutorialEvents.Raise(TutorialEventType.ItemSmelted, recipe.smeltedMetal);
     }
 
     private SmeltingRecipe GetRecipe(ItemData input)

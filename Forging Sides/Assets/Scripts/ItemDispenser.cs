@@ -7,9 +7,10 @@ public class ItemDispenser : MonoBehaviour
 
     public void DispenseItem()
     {
-        if(itemToDispense != null && itemToDispense.physicalPrefab != null)
+        if (itemToDispense != null && itemToDispense.physicalPrefab != null)
         {
             Instantiate(itemToDispense.physicalPrefab, dispensePoint.position, dispensePoint.rotation);
+            TutorialEvents.Raise(TutorialEventType.ItemDispensed, itemToDispense);
         }
     }
 }

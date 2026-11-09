@@ -7,10 +7,11 @@ using UnityEngine.InputSystem;
 
 public class DeliveryDesk : MonoBehaviour
 {
-        private Animator animator;
+    private Animator animator;
 
     [SerializeField] ParticleSystem coinParticle = null;
     private bool isGameOver = false;
+
     [Header("Orders")]
     public List<RecipeData> possibleOrders;
     private RecipeData currentOrder;
@@ -28,7 +29,6 @@ public class DeliveryDesk : MonoBehaviour
     private int strikes = 0;
     public int maxStrikes = 3;
 
-
     public float timeBetweenCustomers = 3f;
     public float successMessageDuration = 2f;
 
@@ -42,27 +42,66 @@ public class DeliveryDesk : MonoBehaviour
     public int ordersToWin = 5;
     private int completedOrders = 0;
 
+    [Header("Tutorial")]
+    [Tooltip("If true, customers don't arrive until StartShift() is called (by the tutorial).")]
+    public bool waitForTutorial = false;
+    private bool tutorialOrderActive = false;
+    private bool shiftStarted = false;
+
     private void Start()
     {
-        StartCoroutine(SpawnNewCustomer());
-
+        if (waitForTutorial)
+        {
+            orderTextUI.text = "";
+            if (timerTextUI != null) timerTextUI.text = "";
+        }
+        else
+        {
+            StartShift();
+        }
     }
+
+    public void StartShift()
+    {
+        if (shiftStarted) return;
+        shiftStarted = true;
+
+        if (tutorialOrderActive)
+        {
+            tutorialOrderActive = false;
+            currentOrder = null;
+            if (currentNPC != null) Destroy(currentNPC);
+        }
+
+        StartCoroutine(SpawnNewCustomer());
+    }
+
+    public void StartTutorialOrder(RecipeData recipe)
+    {
+        if (shiftStarted || recipe == null) return;
+
+        tutorialOrderActive = true;
+
+        if (npcPrefab != null && currentNPC == null)
+            currentNPC = Instantiate(npcPrefab, npcSpawnPoint.position, npcSpawnPoint.rotation);
+
+        currentOrder = recipe;
+        orderTextUI.text = "Order: " + recipe.craftedWeapon.itemName;
+        if (timerTextUI != null) timerTextUI.text = "No rush!";
+        isTimerRunning = false;
+    }
+
 
     private IEnumerator SpawnNewCustomer()
     {
         orderTextUI.text = "Waiting for customer...";
         yield return new WaitForSeconds(timeBetweenCustomers);
 
-
         if (npcPrefab != null)
         {
             currentNPC = Instantiate(npcPrefab, npcSpawnPoint.position, npcSpawnPoint.rotation);
+        }
 
-      
-            
-        }    
-
-        // Pick a random recipe
         currentOrder = possibleOrders[Random.Range(0, possibleOrders.Count)];
         orderTextUI.text = "Order: " + currentOrder.craftedWeapon.itemName;
         timer = timePerOrder;
@@ -71,24 +110,45 @@ public class DeliveryDesk : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
         if (currentOrder == null) return;
 
         CraftingPart deliveredPart = other.GetComponent<CraftingPart>();
+        if (deliveredPart == null) return;
 
-        if (deliveredPart != null)
+        bool correct = deliveredPart.itemData == currentOrder.craftedWeapon;
+
+        if (tutorialOrderActive)
         {
-            if (deliveredPart.itemData == currentOrder.craftedWeapon)
+            Destroy(deliveredPart.gameObject);
+
+            if (correct)
             {
-               
-                StartCoroutine(CompleteOrderSequence(deliveredPart.gameObject));
+                tutorialOrderActive = false;
+                currentOrder = null;
+                if (currentNPC != null) Destroy(currentNPC);
+                if (coinParticle != null) coinParticle.Play();
+                orderTextUI.text = "Order Completed!";
+                if (timerTextUI != null) timerTextUI.text = "";
+                TutorialEvents.Raise(TutorialEventType.OrderDelivered, deliveredPart.itemData);
             }
             else
             {
-                
-                Destroy(deliveredPart.gameObject);
-                HandleStrike();
+                orderTextUI.text = "That's not what they ordered!\nOrder: " + currentOrder.craftedWeapon.itemName;
+                TutorialEvents.Raise(TutorialEventType.WrongDelivery, deliveredPart.itemData);
             }
+            return;
+        }
+
+        if (correct)
+        {
+            TutorialEvents.Raise(TutorialEventType.OrderDelivered, deliveredPart.itemData);
+            StartCoroutine(CompleteOrderSequence(deliveredPart.gameObject));
+        }
+        else
+        {
+            TutorialEvents.Raise(TutorialEventType.WrongDelivery, deliveredPart.itemData);
+            Destroy(deliveredPart.gameObject);
+            HandleStrike();
         }
     }
 
@@ -96,11 +156,11 @@ public class DeliveryDesk : MonoBehaviour
     {
         Destroy(deliveredWeapon);
         currentOrder = null;
-        isTimerRunning = false; 
+        isTimerRunning = false;
 
         if (currentNPC != null)
         {
-            Destroy(currentNPC); 
+            Destroy(currentNPC);
         }
         completedOrders++;
 
@@ -110,14 +170,14 @@ public class DeliveryDesk : MonoBehaviour
             orderTextUI.color = Color.green;
 
             Time.timeScale = 0f;
-            isGameOver = true; 
+            isGameOver = true;
 
-            yield break; 
+            yield break;
         }
         else
         {
             orderTextUI.text = "Order Completed! (" + completedOrders + "/" + ordersToWin + ")";
-            coinParticle.Play();
+            if (coinParticle != null) coinParticle.Play();
             yield return new WaitForSeconds(successMessageDuration);
 
             StartCoroutine(SpawnNewCustomer());
@@ -138,7 +198,6 @@ public class DeliveryDesk : MonoBehaviour
         }
         else
         {
-            
             if (timer <= 0)
             {
                 if (currentNPC != null) Destroy(currentNPC);
@@ -150,7 +209,6 @@ public class DeliveryDesk : MonoBehaviour
 
     private void Update()
     {
-       
         if (isGameOver && Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
             Time.timeScale = 1f;

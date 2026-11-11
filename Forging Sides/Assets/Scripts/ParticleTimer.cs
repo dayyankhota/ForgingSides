@@ -28,6 +28,7 @@ public class ParticleTimer : MonoBehaviour
 
     private IEnumerator ActivateParticlesLoop()
     {
+
        
         while (true)
         {

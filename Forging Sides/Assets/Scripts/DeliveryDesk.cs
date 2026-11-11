@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class DeliveryDesk : MonoBehaviour
 {
     private Animator animator;
+    AudioManager audioManager;
 
     [SerializeField] ParticleSystem coinParticle = null;
     private bool isGameOver = false;
@@ -52,6 +53,7 @@ public class DeliveryDesk : MonoBehaviour
     {
         if (waitForTutorial)
         {
+            audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
             orderTextUI.text = "";
             if (timerTextUI != null) timerTextUI.text = "";
         }
@@ -123,9 +125,11 @@ public class DeliveryDesk : MonoBehaviour
 
             if (correct)
             {
+                
                 tutorialOrderActive = false;
                 currentOrder = null;
                 if (currentNPC != null) Destroy(currentNPC);
+                audioManager.PlaySFX(audioManager.CustomerSuccess);
                 if (coinParticle != null) coinParticle.Play();
                 orderTextUI.text = "Order Completed!";
                 if (timerTextUI != null) timerTextUI.text = "";
@@ -134,6 +138,7 @@ public class DeliveryDesk : MonoBehaviour
             else
             {
                 orderTextUI.text = "That's not what they ordered!\nOrder: " + currentOrder.craftedWeapon.itemName;
+                 audioManager.PlaySFX(audioManager.CustomerFail);
                 TutorialEvents.Raise(TutorialEventType.WrongDelivery, deliveredPart.itemData);
             }
             return;
@@ -142,11 +147,13 @@ public class DeliveryDesk : MonoBehaviour
         if (correct)
         {
             TutorialEvents.Raise(TutorialEventType.OrderDelivered, deliveredPart.itemData);
+            audioManager.PlaySFX(audioManager.CustomerSuccess);
             StartCoroutine(CompleteOrderSequence(deliveredPart.gameObject));
         }
         else
         {
             TutorialEvents.Raise(TutorialEventType.WrongDelivery, deliveredPart.itemData);
+            audioManager.PlaySFX(audioManager.CustomerFail);
             Destroy(deliveredPart.gameObject);
             HandleStrike();
         }

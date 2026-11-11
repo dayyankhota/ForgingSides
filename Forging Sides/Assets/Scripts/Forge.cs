@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Forge : MonoBehaviour
 {
+    AudioManager audioManager;
+     
+    [SerializeField] ParticleSystem forgeSmoke = null;
+
     [System.Serializable]
     public class SmeltingRecipe
     {
         public ItemData rawMetal;
         public ItemData smeltedMetal;
         public float timeToSmelt = 3f;
+        
     }
 
     [Header("Forge Setup")]
@@ -20,6 +25,7 @@ public class Forge : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         CraftingPart part = other.GetComponent<CraftingPart>();
 
         if (part != null && !smeltingProcesses.ContainsKey(part))
@@ -28,9 +34,12 @@ public class Forge : MonoBehaviour
 
             if (matchedRecipe != null)
             {
-                Coroutine process = StartCoroutine(SmeltRoutine(part, matchedRecipe));
-                smeltingProcesses.Add(part, process);
 
+                audioManager.PlaySFX(audioManager.Furnace);
+                Coroutine process = StartCoroutine(SmeltRoutine(part, matchedRecipe));
+
+                smeltingProcesses.Add(part, process);
+                
                 TutorialEvents.Raise(TutorialEventType.SmeltingStarted, part.itemData);
             }
         }
@@ -49,12 +58,15 @@ public class Forge : MonoBehaviour
 
     private IEnumerator SmeltRoutine(CraftingPart part, SmeltingRecipe recipe)
     {
+       
         yield return new WaitForSeconds(recipe.timeToSmelt);
+        
 
         smeltingProcesses.Remove(part);
 
         Destroy(part.gameObject);
         Instantiate(recipe.smeltedMetal.physicalPrefab, spawnPoint.position, spawnPoint.rotation);
+         if (forgeSmoke != null) forgeSmoke.Play();
 
         TutorialEvents.Raise(TutorialEventType.ItemSmelted, recipe.smeltedMetal);
     }

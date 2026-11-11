@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8615941074989512583}
   - component: {fileID: 1869986643991723870}
   m_Layer: 6
-  m_Name: SteelCube
+  m_Name: Copper Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

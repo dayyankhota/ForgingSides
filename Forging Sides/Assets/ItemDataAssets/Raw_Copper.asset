@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e521f45b9717684d9be46423059b2df, type: 3}
-  m_Name: Raw_Steel
+  m_Name: Raw_Copper
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Raw Steel
+  itemName: Raw Copper
   physicalPrefab: {fileID: 3289645674612112478, guid: 7f20487fc3bd96f4aafa1dd5b27b8cf1, type: 3}

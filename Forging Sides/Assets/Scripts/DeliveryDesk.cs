@@ -9,6 +9,7 @@ public class DeliveryDesk : MonoBehaviour
 {
     private Animator animator;
     AudioManager audioManager;
+    public Transform destinationSpot;
 
     [SerializeField] ParticleSystem coinParticle = null;
     private bool isGameOver = false;
@@ -103,7 +104,11 @@ public class DeliveryDesk : MonoBehaviour
         {
             currentNPC = Instantiate(npcPrefab, npcSpawnPoint.position, npcSpawnPoint.rotation);
         }
-
+                MoveToSpot movement = currentNPC.GetComponent<MoveToSpot>();
+        if (movement != null && destinationSpot != null)
+        {
+            movement.SetDestination(destinationSpot.position);
+        }
         currentOrder = possibleOrders[Random.Range(0, possibleOrders.Count)];
         orderTextUI.text = "Order: " + currentOrder.craftedWeapon.itemName;
         timer = timePerOrder;

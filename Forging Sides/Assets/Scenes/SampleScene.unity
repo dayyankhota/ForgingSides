@@ -20534,7 +20534,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.01745245, z: 0, w: 0.99984777}
-  m_LocalPosition: {x: -0.012, y: 1.737, z: 0.303}
+  m_LocalPosition: {x: -0.009, y: 1.329, z: 0.213}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23657,7 +23657,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 701bf45792901b74ab9e6f84816e4afb, type: 2}
+  - {fileID: 2100000, guid: 1611252cf1979a84db4cae96d6e205dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30641,8 +30641,8 @@ Transform:
   m_GameObject: {fileID: 653223475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.89, y: 1, z: -28.989}
-  m_LocalScale: {x: 5.289185, y: 4, z: 12.123662}
+  m_LocalPosition: {x: 55.89, y: 1.38, z: -28.989}
+  m_LocalScale: {x: 5.289185, y: 4.5368, z: 12.123662}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1827076321}
@@ -30693,6 +30693,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cb6cca4c75015b346be87e2260486b24, type: 2}
   - {fileID: 11400000, guid: b68f547987fcd6047bd36e33ef6f7875, type: 2}
   - {fileID: 11400000, guid: a698f3af4cbf91a448f6f7bfa9902ae5, type: 2}
+  - {fileID: 11400000, guid: 6be8f564bfef24d4e86206d01045c257, type: 2}
+  - {fileID: 11400000, guid: b676cf38e815e534da7b784c1200edc0, type: 2}
+  - {fileID: 11400000, guid: 845600de5ea8cdc458d39ee525ec1d1e, type: 2}
+  - {fileID: 11400000, guid: 5bfbc84cb5927054abc55a68ea9c820e, type: 2}
+  - {fileID: 11400000, guid: b57b87c8ec31acd48b6246bf89bf466b, type: 2}
   spawnPoint: {fileID: 1827076321}
   slots:
   - {fileID: 408114893}
@@ -30700,8 +30705,8 @@ MonoBehaviour:
   - {fileID: 1577156629}
   qte: {fileID: 1375124301}
   failPenalty: 0
-  qteHitClip: {fileID: 0}
-  qteFailClip: {fileID: 0}
+  qteHitClip: {fileID: 8300000, guid: 50deb68bc1c3c0e4dabf11f70f75f801, type: 3}
+  qteFailClip: {fileID: 8300000, guid: c41bfb339a9dc2b48898840f498f4d8c, type: 3}
   sparkParticle: {fileID: 473114556}
 --- !u!1 &689566524
 GameObject:
@@ -37206,8 +37211,8 @@ MonoBehaviour:
     onStepStart:
       m_PersistentCalls:
         m_Calls: []
-  - message: 'To make the hammer you will need to smelt some steel. Press E at the
-      "Raw Steel" box. '
+  - message: 'To make the hammer you will need to smelt some copper. Press E at the
+      "Raw Copper" box. '
     completeWhen: 2
     requiredItem: {fileID: 11400000, guid: 843bf084d83a7784ab590f684366fbac, type: 2}
     requiredCount: 0
@@ -41332,7 +41337,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189149675}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.08}
+  m_LocalPosition: {x: 0, y: 0, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41363,7 +41368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Raw Steel
+  m_text: 'Raw Copper
 
 '
   m_isRightToLeft: 0
@@ -50193,7 +50198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 044b474f86d08bf49b5997a0e61cb10b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8006828
+      value: 0.8953569
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 044b474f86d08bf49b5997a0e61cb10b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50201,7 +50206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 044b474f86d08bf49b5997a0e61cb10b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.76
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 044b474f86d08bf49b5997a0e61cb10b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52871,27 +52876,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1f63e188dac157d4190d0eb12d6b185d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 0.6748725
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f63e188dac157d4190d0eb12d6b185d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 0.6748725
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f63e188dac157d4190d0eb12d6b185d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.75
+      value: 0.6748725
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f63e188dac157d4190d0eb12d6b185d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.0015962
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f63e188dac157d4190d0eb12d6b185d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.149
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f63e188dac157d4190d0eb12d6b185d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.00083542
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f63e188dac157d4190d0eb12d6b185d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -55436,8 +55441,8 @@ Transform:
   m_GameObject: {fileID: 1827843358}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21333335, y: 0.44533333, z: 2.0293336}
-  m_LocalScale: {x: 0.25714725, y: 0.059305973, z: 0.8160478}
+  m_LocalPosition: {x: 0.2225, y: 0.4385, z: 2.0293336}
+  m_LocalScale: {x: 0.25500265, y: 0.059305973, z: 0.8506482}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2116789662}
@@ -55497,7 +55502,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f0d6433b01d01ca43adcdf6ca0dd485e, type: 2}
+  - {fileID: 2100000, guid: 72547ffb69a8ed648b0eb75ed47bfdbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

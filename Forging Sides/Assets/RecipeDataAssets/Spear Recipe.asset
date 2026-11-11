@@ -15,5 +15,7 @@ MonoBehaviour:
   recipeName: Spear
   requiredParts:
   - {fileID: 11400000, guid: a850216be4bcfbe48b324f711607172d, type: 2}
-  - {fileID: 11400000, guid: 2b7d0144522d79c4fa7f683d50516e5a, type: 2}
+  - {fileID: 11400000, guid: 65cabc40effc1ba499b9a634297941ca, type: 2}
   craftedWeapon: {fileID: 11400000, guid: 5b31e1e0bb05f114aa8dcf00f59ef139, type: 2}
+  qteKeyCount: 3
+  qteTimePerKey: 2

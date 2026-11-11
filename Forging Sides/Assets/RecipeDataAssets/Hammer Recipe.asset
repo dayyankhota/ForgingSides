@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
   recipeName: Hammer
   requiredParts:
-  - {fileID: 11400000, guid: 7009539e87d0ac941a47c2930e29db5f, type: 2}
+  - {fileID: 11400000, guid: 2e570d17685aa4a4daaf636843385291, type: 2}
   - {fileID: 11400000, guid: 2b7d0144522d79c4fa7f683d50516e5a, type: 2}
   craftedWeapon: {fileID: 11400000, guid: c1b45435a1a5b76419eeab166fad20f5, type: 2}
+  qteKeyCount: 3
+  qteTimePerKey: 2

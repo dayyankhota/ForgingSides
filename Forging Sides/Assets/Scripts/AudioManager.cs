@@ -10,7 +10,10 @@ public class AudioManager : MonoBehaviour
       public AudioClip steamEffect;
       public AudioClip metalClang;
       public AudioClip waterDrop;
-   
+      public AudioClip Furnace;
+      public AudioClip BoxInteract;
+      public AudioClip CustomerSuccess;
+      public AudioClip CustomerFail;
 
       private void Start()
       {

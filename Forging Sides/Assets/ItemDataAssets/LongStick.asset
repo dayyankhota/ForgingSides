@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e521f45b9717684d9be46423059b2df, type: 3}
   m_Name: LongStick
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: LongStick
+  itemName: ' Long Stick'
   physicalPrefab: {fileID: 6064899247517983880, guid: bc928b1f85cbaf74eab2b34710962b20, type: 3}

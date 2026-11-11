@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45ae872e590f33e40bc2159021cd3e5b, type: 3}
-  m_Name: SteelCube
+  m_Name: CopperCubeRecipe
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
-  recipeName: SteelCube
+  recipeName: CopperCubeRecipe
   requiredParts:
   - {fileID: 11400000, guid: 7009539e87d0ac941a47c2930e29db5f, type: 2}
   - {fileID: 11400000, guid: 7009539e87d0ac941a47c2930e29db5f, type: 2}

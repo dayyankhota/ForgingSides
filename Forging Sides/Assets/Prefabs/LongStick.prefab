@@ -153,5 +153,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec14b81782966a45bc0de29372fb6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CraftingPart
-  itemData: {fileID: 11400000, guid: 2b7d0144522d79c4fa7f683d50516e5a, type: 2}
+  itemData: {fileID: 11400000, guid: 65cabc40effc1ba499b9a634297941ca, type: 2}
   currentBench: {fileID: 0}

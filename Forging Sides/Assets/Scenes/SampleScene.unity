@@ -39455,7 +39455,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086179685}
   serializedVersion: 8
-  lengthInSec: 2
+  lengthInSec: 3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -52488,6 +52488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3095b9ccadb534d91905300a9efc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Forge
+  forgeSmoke: {fileID: 1086179688}
   recipes:
   - rawMetal: {fileID: 11400000, guid: 843bf084d83a7784ab590f684366fbac, type: 2}
     smeltedMetal: {fileID: 11400000, guid: 7009539e87d0ac941a47c2930e29db5f, type: 2}

@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class Forge : MonoBehaviour
 {
+    AudioManager audioManager;
+    
+    [SerializeField] ParticleSystem forgeSmoke = null;
     [System.Serializable]
     public class SmeltingRecipe
     {
+
         public ItemData rawMetal;
         public ItemData smeltedMetal;
         public float timeToSmelt = 3f;
@@ -34,6 +38,7 @@ public class Forge : MonoBehaviour
 
     private void Awake()
     {
+         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         if (slots == null || slots.Length == 0)
         {
             Debug.LogWarning("[Forge] '" + name + "' has no snap slots assigned – items can't be placed in it.");
@@ -54,9 +59,10 @@ public class Forge : MonoBehaviour
 
         int index = GetFreeSlotIndex();
         if (index == -1) return false;
+       
 
         PlaceInSlot(part, index);
-
+        
         SmeltingRecipe recipe = GetRecipe(part.itemData);
         SmeltJob job = new SmeltJob { startTime = Time.time, duration = recipe.timeToSmelt };
         jobs[part] = job;
@@ -86,7 +92,8 @@ public class Forge : MonoBehaviour
         Transform slot = slots[index];
         occupants[index] = part;
         part.currentForge = this;
-
+         audioManager.PlaySFX(audioManager.Furnace);
+         if (forgeSmoke != null) forgeSmoke.Play();
         part.transform.SetParent(null);
         part.transform.SetPositionAndRotation(slot.position, slot.rotation);
 

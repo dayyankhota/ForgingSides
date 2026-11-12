@@ -112,10 +112,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 1.50282
+  m_Height: 2.5524042
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: -0.06910883, y: 0.22468236, z: 0.0014533515}
 --- !u!54 &316614273289071986
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -156,3 +156,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CraftingPart
   itemData: {fileID: 11400000, guid: 5b31e1e0bb05f114aa8dcf00f59ef139, type: 2}
+  currentBench: {fileID: 0}
+  currentForge: {fileID: 0}

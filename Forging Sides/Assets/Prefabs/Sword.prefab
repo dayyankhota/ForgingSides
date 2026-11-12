@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7792964888142561633}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -2.29783, y: 1.63, z: -1.15896}
   m_LocalScale: {x: 0.1548934, y: 0.1548934, z: 0.1548934}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &3565351151486843900
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -112,10 +112,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
-  m_Height: 14
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: -3, z: -1}
+  m_Radius: 1.738076
+  m_Height: 41.96158
+  m_Direction: 2
+  m_Center: {x: -1.2966491, y: -0.2165253, z: -5.8111596}
 --- !u!54 &8615941074989512583
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -157,3 +157,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CraftingPart
   itemData: {fileID: 11400000, guid: ea084adb0cd84c946b0ef8c15fa980bc, type: 2}
   currentBench: {fileID: 0}
+  currentForge: {fileID: 0}

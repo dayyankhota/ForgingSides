@@ -5,10 +5,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-/// <summary>
-/// Interactive "First Day" tutorial. Each step shows a message and waits until the player
-/// actually performs an action (smelt, craft, deliver...). Steps are set up in the Inspector.
-/// </summary>
 public class FirstDayTutorial : MonoBehaviour
 {
     [Serializable]
@@ -65,7 +61,6 @@ public class FirstDayTutorial : MonoBehaviour
     [Header("Events")]
     public UnityEvent onTutorialComplete;
 
-    // Survives scene reloads but resets when the game is closed
     private static bool completedThisSession = false;
 
     private int currentIndex = -1;
@@ -102,7 +97,6 @@ public class FirstDayTutorial : MonoBehaviour
 
         Keyboard kb = Keyboard.current;
 
-        // Skip the whole tutorial
         if (kb != null && kb[skipKey].wasPressedThisFrame)
         {
             EndTutorial();
@@ -111,7 +105,7 @@ public class FirstDayTutorial : MonoBehaviour
 
         UpdateMarker();
 
-        // Short pause after completing a step, so the player sees "Done!"
+
         if (waitingForNext)
         {
             nextStepTimer -= Time.deltaTime;
@@ -122,7 +116,6 @@ public class FirstDayTutorial : MonoBehaviour
         TutorialStep step = Current;
         if (step == null) return;
 
-        // Steps that are checked by polling rather than events
         switch (step.completeWhen)
         {
             case TutorialEventType.Continue:
@@ -135,7 +128,6 @@ public class FirstDayTutorial : MonoBehaviour
         }
     }
 
-    // ---------- Step flow ----------
 
     private void HandleEvent(TutorialEventType type, ItemData item)
     {
@@ -196,8 +188,6 @@ public class FirstDayTutorial : MonoBehaviour
         if (deliveryDesk != null) deliveryDesk.StartShift();
         onTutorialComplete?.Invoke();
     }
-
-    // ---------- UI helpers ----------
 
     private void UpdateHint()
     {

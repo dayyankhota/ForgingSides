@@ -1836,15 +1836,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9072670403721885275}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.8542579, z: -0, w: 0.5198495}
+  m_LocalPosition: {x: -0.05193583, y: 0, z: 0.08503606}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5724517020908489711}
   - {fileID: 945489584960791308}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 117.356, z: 0}
 --- !u!95 &7310597988053824773
 Animator:
   serializedVersion: 7
@@ -1858,7 +1858,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 78d95e5878d93fc4ba8358ae586fd7bc, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -1949,13 +1949,13 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
+  m_Speed: 10
+  m_Acceleration: 100
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 360
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
@@ -1973,6 +1973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af365ed308b58746943aa1a4c417cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveToSpot
+  manualStoppingDistance: 1.5
 --- !u!1 &9096872435283614688
 GameObject:
   m_ObjectHideFlags: 0

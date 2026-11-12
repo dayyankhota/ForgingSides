@@ -10,10 +10,12 @@ public class Workbench : MonoBehaviour
     public Transform spawnPoint;
 
     [Header("Snap Slots")]
+    [Tooltip("Empty child transforms on the bench surface where parts snap to.")]
     public Transform[] slots;
 
     [Header("Quick-Time Event")]
     public CraftingQTE qte;
+    [Tooltip("KeepParts = player can retry. DestroyParts = failed craft wastes the materials.")]
     public FailPenalty failPenalty = FailPenalty.KeepParts;
     public AudioClip qteHitClip;
     public AudioClip qteFailClip;
@@ -43,11 +45,7 @@ public class Workbench : MonoBehaviour
     public bool TryPlacePart(CraftingPart part)
     {
         int index = GetFreeSlotIndex();
-        if (index == -1)
-        {
-            Debug.Log("[Workbench] No free slot for '" + part.name + "'.");
-            return false;
-        }
+        if (index == -1) return false;
 
         Transform slot = slots[index];
         occupants[index] = part;
@@ -58,10 +56,10 @@ public class Workbench : MonoBehaviour
 
         Rigidbody rb = part.GetComponent<Rigidbody>();
         if (rb != null) rb.isKinematic = true;
+
         TutorialEvents.Raise(TutorialEventType.ItemPlacedOnBench, part.itemData);
         return true;
     }
-
 
     public void RemovePart(CraftingPart part)
     {
@@ -72,6 +70,11 @@ public class Workbench : MonoBehaviour
         part.currentBench = null;
     }
 
+    public bool HasFreeSlot()
+    {
+        return GetFreeSlotIndex() != -1;
+    }
+
     private int GetFreeSlotIndex()
     {
         for (int i = 0; i < occupants.Length; i++)
@@ -80,7 +83,6 @@ public class Workbench : MonoBehaviour
         }
         return -1;
     }
-
 
     public RecipeData GetMatchingRecipe()
     {
@@ -98,7 +100,6 @@ public class Workbench : MonoBehaviour
         }
         return null;
     }
-
 
     public bool TryCraft()
     {

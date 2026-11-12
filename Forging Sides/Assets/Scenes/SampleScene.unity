@@ -20795,6 +20795,37 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &308829318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 308829319}
+  m_Layer: 7
+  m_Name: Forge_Slot_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &308829319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308829318}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.256, y: 0.562, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1256748781}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &317634379
 Mesh:
   m_ObjectHideFlags: 0
@@ -38304,11 +38335,11 @@ MonoBehaviour:
     requiredItem: {fileID: 0}
     requiredCount: 0
     highlightTarget: {fileID: 714998629}
-    startTutorialOrder: {fileID: 11400000, guid: a698f3af4cbf91a448f6f7bfa9902ae5, type: 2}
+    startTutorialOrder: {fileID: 11400000, guid: 845600de5ea8cdc458d39ee525ec1d1e, type: 2}
     onStepStart:
       m_PersistentCalls:
         m_Calls: []
-  - message: 'To make the hammer you will need to smelt some copper. Press E at the
+  - message: 'To make the sword you will need to smelt some copper. Press E at the
       "Raw Copper" box. '
     completeWhen: 2
     requiredItem: {fileID: 11400000, guid: 843bf084d83a7784ab590f684366fbac, type: 2}
@@ -38318,7 +38349,7 @@ MonoBehaviour:
     onStepStart:
       m_PersistentCalls:
         m_Calls: []
-  - message: Pick up the ore and drop it onto the forge.
+  - message: Pick up the ore and drop it into the forge.
     completeWhen: 5
     requiredItem: {fileID: 11400000, guid: 843bf084d83a7784ab590f684366fbac, type: 2}
     requiredCount: 0
@@ -38327,9 +38358,18 @@ MonoBehaviour:
     onStepStart:
       m_PersistentCalls:
         m_Calls: []
-  - message: 'The ore will take a few seconds to smelt, ytou can see if an ore is
+  - message: 'The ore will take a few seconds to smelt, you can see if an ore is
       smelting by placing your cursor over the forge. '
     completeWhen: 6
+    requiredItem: {fileID: 11400000, guid: 7009539e87d0ac941a47c2930e29db5f, type: 2}
+    requiredCount: 0
+    highlightTarget: {fileID: 1256748781}
+    startTutorialOrder: {fileID: 0}
+    onStepStart:
+      m_PersistentCalls:
+        m_Calls: []
+  - message: 'Take the ingot from the forge. '
+    completeWhen: 3
     requiredItem: {fileID: 11400000, guid: 7009539e87d0ac941a47c2930e29db5f, type: 2}
     requiredCount: 0
     highlightTarget: {fileID: 1256748781}
@@ -38357,7 +38397,7 @@ MonoBehaviour:
         m_Calls: []
   - message: 'Finally, press E while looking at the workbench to craft.  '
     completeWhen: 7
-    requiredItem: {fileID: 11400000, guid: c1b45435a1a5b76419eeab166fad20f5, type: 2}
+    requiredItem: {fileID: 11400000, guid: ea084adb0cd84c946b0ef8c15fa980bc, type: 2}
     requiredCount: 0
     highlightTarget: {fileID: 653223481}
     startTutorialOrder: {fileID: 0}
@@ -38366,7 +38406,7 @@ MonoBehaviour:
         m_Calls: []
   - message: 'Now, deliver your finished item to the front desk '
     completeWhen: 8
-    requiredItem: {fileID: 11400000, guid: c1b45435a1a5b76419eeab166fad20f5, type: 2}
+    requiredItem: {fileID: 11400000, guid: ea084adb0cd84c946b0ef8c15fa980bc, type: 2}
     requiredCount: 0
     highlightTarget: {fileID: 714998629}
     startTutorialOrder: {fileID: 0}
@@ -52433,6 +52473,7 @@ Transform:
   - {fileID: 235847400}
   - {fileID: 1086179686}
   - {fileID: 601367288}
+  - {fileID: 308829319}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1256748782
@@ -52447,12 +52488,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3095b9ccadb534d91905300a9efc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Forge
-  forgeSmoke: {fileID: 1086179688}
   recipes:
   - rawMetal: {fileID: 11400000, guid: 843bf084d83a7784ab590f684366fbac, type: 2}
     smeltedMetal: {fileID: 11400000, guid: 7009539e87d0ac941a47c2930e29db5f, type: 2}
     timeToSmelt: 4
+  keepOutputInSlot: 1
   spawnPoint: {fileID: 235847400}
+  slots:
+  - {fileID: 308829319}
 --- !u!65 &1256748783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54505,14 +54548,13 @@ MonoBehaviour:
   playerCamera: {fileID: 330585546}
   holdPoint: {fileID: 90598403}
   interactionRange: 12
+  grabRadius: 0.2
   grabbableLayer:
     serializedVersion: 2
     m_Bits: 64
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 128
   interactCooldown: 0.5
   itemNameText: {fileID: 148341534}
+  debugRays: 0
 --- !u!1 &1451563194
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,71 +2,141 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Forge : MonoBehaviour
 {
-    AudioManager audioManager;
-     
-    [SerializeField] ParticleSystem forgeSmoke = null;
-
     [System.Serializable]
     public class SmeltingRecipe
     {
         public ItemData rawMetal;
         public ItemData smeltedMetal;
         public float timeToSmelt = 3f;
-        
     }
 
     [Header("Forge Setup")]
     public List<SmeltingRecipe> recipes;
+    public bool keepOutputInSlot = true;
     public Transform spawnPoint;
 
-    private Dictionary<CraftingPart, Coroutine> smeltingProcesses = new Dictionary<CraftingPart, Coroutine>();
+    [Header("Snap Slots")]
+    public Transform[] slots;
 
-    private void OnTriggerEnter(Collider other)
+    private CraftingPart[] occupants;
+
+    private class SmeltJob
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        CraftingPart part = other.GetComponent<CraftingPart>();
+        public Coroutine routine;
+        public float startTime;
+        public float duration;
+    }
 
-        if (part != null && !smeltingProcesses.ContainsKey(part))
+    private readonly Dictionary<CraftingPart, SmeltJob> jobs = new Dictionary<CraftingPart, SmeltJob>();
+
+    private void Awake()
+    {
+        if (slots == null || slots.Length == 0)
         {
-            SmeltingRecipe matchedRecipe = GetRecipe(part.itemData);
+            Debug.LogWarning("[Forge] '" + name + "' has no snap slots assigned – items can't be placed in it.");
+            slots = new Transform[0];
+        }
+        occupants = new CraftingPart[slots.Length];
+    }
 
-            if (matchedRecipe != null)
-            {
 
-                audioManager.PlaySFX(audioManager.Furnace);
-                Coroutine process = StartCoroutine(SmeltRoutine(part, matchedRecipe));
+    public bool CanAccept(CraftingPart part)
+    {
+        return part != null && GetRecipe(part.itemData) != null;
+    }
 
-                smeltingProcesses.Add(part, process);
-                
-                TutorialEvents.Raise(TutorialEventType.SmeltingStarted, part.itemData);
-            }
+    public bool TryPlacePart(CraftingPart part)
+    {
+        if (!CanAccept(part)) return false;
+
+        int index = GetFreeSlotIndex();
+        if (index == -1) return false;
+
+        PlaceInSlot(part, index);
+
+        SmeltingRecipe recipe = GetRecipe(part.itemData);
+        SmeltJob job = new SmeltJob { startTime = Time.time, duration = recipe.timeToSmelt };
+        jobs[part] = job;
+        job.routine = StartCoroutine(SmeltRoutine(part, recipe));
+
+        TutorialEvents.Raise(TutorialEventType.SmeltingStarted, part.itemData);
+        return true;
+    }
+
+    public void RemovePart(CraftingPart part)
+    {
+        for (int i = 0; i < occupants.Length; i++)
+        {
+            if (occupants[i] == part) occupants[i] = null;
+        }
+        part.currentForge = null;
+
+        if (jobs.TryGetValue(part, out SmeltJob job))
+        {
+            if (job.routine != null) StopCoroutine(job.routine);
+            jobs.Remove(part);
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void PlaceInSlot(CraftingPart part, int index)
     {
-        CraftingPart part = other.GetComponent<CraftingPart>();
+        Transform slot = slots[index];
+        occupants[index] = part;
+        part.currentForge = this;
 
-        if (part != null && smeltingProcesses.ContainsKey(part))
+        part.transform.SetParent(null);
+        part.transform.SetPositionAndRotation(slot.position, slot.rotation);
+
+        Rigidbody rb = part.GetComponent<Rigidbody>();
+        if (rb != null) rb.isKinematic = true;
+    }
+
+    public bool HasFreeSlot()
+    {
+        return GetFreeSlotIndex() != -1;
+    }
+
+    private int GetFreeSlotIndex()
+    {
+        for (int i = 0; i < occupants.Length; i++)
         {
-            StopCoroutine(smeltingProcesses[part]);
-            smeltingProcesses.Remove(part);
+            if (occupants[i] == null) return i;
         }
+        return -1;
+    }
+
+    private int GetSlotIndex(CraftingPart part)
+    {
+        for (int i = 0; i < occupants.Length; i++)
+        {
+            if (occupants[i] == part) return i;
+        }
+        return -1;
     }
 
     private IEnumerator SmeltRoutine(CraftingPart part, SmeltingRecipe recipe)
     {
-       
         yield return new WaitForSeconds(recipe.timeToSmelt);
-        
 
-        smeltingProcesses.Remove(part);
+        jobs.Remove(part);
 
+        int slotIndex = GetSlotIndex(part);
+        if (slotIndex != -1) occupants[slotIndex] = null;
         Destroy(part.gameObject);
-        Instantiate(recipe.smeltedMetal.physicalPrefab, spawnPoint.position, spawnPoint.rotation);
-         if (forgeSmoke != null) forgeSmoke.Play();
+
+        bool toSlot = keepOutputInSlot && slotIndex != -1;
+        Transform target = toSlot ? slots[slotIndex] : spawnPoint;
+
+        GameObject output = Instantiate(recipe.smeltedMetal.physicalPrefab, target.position, target.rotation);
+
+        if (toSlot)
+        {
+            CraftingPart outputPart = output.GetComponent<CraftingPart>();
+            if (outputPart != null) PlaceInSlot(outputPart, slotIndex);
+        }
 
         TutorialEvents.Raise(TutorialEventType.ItemSmelted, recipe.smeltedMetal);
     }
@@ -82,6 +152,13 @@ public class Forge : MonoBehaviour
 
     public bool IsSmelting()
     {
-        return smeltingProcesses.Count > 0;
+        return jobs.Count > 0;
+    }
+
+    public float GetSmeltProgress(CraftingPart part)
+    {
+        if (part != null && jobs.TryGetValue(part, out SmeltJob job))
+            return Mathf.Clamp01((Time.time - job.startTime) / job.duration);
+        return -1f;
     }
 }

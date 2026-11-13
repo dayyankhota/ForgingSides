@@ -66,18 +66,19 @@ public class DeliveryDesk : MonoBehaviour
     private bool shiftStarted = false;
     private Coroutine tutorialOrderRoutine;
 
- 
+
     private readonly List<CraftingPart> partsOnDesk = new List<CraftingPart>();
 
     private void Awake()
     {
-        GameEnded = false;
+        GameEnded = false; 
     }
 
     private void Start()
     {
         if (winPanel != null) winPanel.SetActive(false);
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        CheckSetup();
 
         GameObject audioObj = GameObject.FindGameObjectWithTag("Audio");
         if (audioObj != null) audioManager = audioObj.GetComponent<AudioManager>();
@@ -163,7 +164,7 @@ public class DeliveryDesk : MonoBehaviour
 
         if (isGameOver) yield break;
 
-    
+   
         currentOrder = possibleOrders[Random.Range(0, possibleOrders.Count)];
         orderTextUI.text = "Order: " + currentOrder.craftedWeapon.itemName;
         timer = timePerOrder;
@@ -177,7 +178,7 @@ public class DeliveryDesk : MonoBehaviour
         if (currentNPC == null) yield break;
 
         MoveToSpot mover = currentNPC.GetComponent<MoveToSpot>();
-        if (mover == null) yield break; 
+        if (mover == null) yield break;
 
         float waited = 0f;
         while (currentNPC != null && !mover.HasArrived && waited < maxArrivalWait)
@@ -312,23 +313,35 @@ public class DeliveryDesk : MonoBehaviour
         if (audioManager != null && clip != null) audioManager.PlaySFX(clip);
     }
 
+    private void CheckSetup()
+    {
+        string scene = SceneManager.GetActiveScene().name;
+
+        if (gameOverPanel == null)
+            Debug.LogWarning("[Setup] " + scene + ": DeliveryDesk has no Game Over Panel assigned.");
+
+        bool isLastScene = SceneController.instance == null || SceneController.instance.IsLastScene();
+        if (isLastScene && winPanel == null)
+            Debug.LogWarning("[Setup] " + scene + ": this is the last level but DeliveryDesk has no Win Panel assigned.");
+
+        if (SceneController.instance == null)
+            Debug.LogWarning("[Setup] " + scene + ": no SceneController found. Add the SceneTransition prefab.");
+
+        if (possibleOrders == null || possibleOrders.Count == 0)
+            Debug.LogWarning("[Setup] " + scene + ": DeliveryDesk has no Possible Orders.");
+    }
+
     private void ShowGameOverScreen()
     {
         isGameOver = true;
         GameEnded = true;
         isTimerRunning = false;
 
-        if (gameOverPanel != null)
-        {
-            gameOverPanel.SetActive(true);
-            orderTextUI.text = "";
-            if (timerTextUI != null) timerTextUI.text = "";
-        }
-        else
-        {
-            orderTextUI.text = "GAME OVER\nPress R to Restart";
-            orderTextUI.color = Color.red;
-        }
+        orderTextUI.text = "";
+        if (timerTextUI != null) timerTextUI.text = "";
+
+        if (gameOverPanel != null) gameOverPanel.SetActive(true);
+        else Debug.LogWarning("[DeliveryDesk] Game over, but no Game Over Panel is assigned on '" + name + "'.");
 
         Time.timeScale = 0f;
     }
@@ -340,17 +353,11 @@ public class DeliveryDesk : MonoBehaviour
         GameEnded = true;
         isTimerRunning = false;
 
-        if (winPanel != null)
-        {
-            winPanel.SetActive(true);
-            orderTextUI.text = "";
-            if (timerTextUI != null) timerTextUI.text = "";
-        }
-        else
-        {
-            orderTextUI.color = Color.green;
-            orderTextUI.text = "You Win!\nPress R to Restart or Q to Quit";
-        }
+        orderTextUI.text = "";
+        if (timerTextUI != null) timerTextUI.text = "";
+
+        if (winPanel != null) winPanel.SetActive(true);
+        else Debug.LogWarning("[DeliveryDesk] Level won, but no Win Panel is assigned on '" + name + "'.");
 
         Time.timeScale = 0f;
     }
@@ -374,7 +381,7 @@ public class DeliveryDesk : MonoBehaviour
 
         isLeaving = true;
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false; 
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif

@@ -33425,6 +33425,11 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &765074686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2046269243881535893, guid: 278fba37cf9bd18429a9512997a1e7a7, type: 3}
+  m_PrefabInstance: {fileID: 1837283459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &779961460
 GameObject:
   m_ObjectHideFlags: 0
@@ -82675,13 +82680,13 @@ MonoBehaviour:
   maxArrivalWait: 15
   strikeTextUI: {fileID: 623654481}
   maxStrikes: 3
-  gameOverPanel: {fileID: 2046269243881535893, guid: 278fba37cf9bd18429a9512997a1e7a7, type: 3}
+  gameOverPanel: {fileID: 765074686}
   timeBetweenCustomers: 3
   successMessageDuration: 2
   timerTextUI: {fileID: 1771531003}
   timePerOrder: 45
   ordersToWin: 5
-  winPanel: {fileID: 0}
+  winPanel: {fileID: 705405179}
   restartSceneName: Level1
   quitToMainMenu: 0
   mainMenuSceneName: MainMenu

@@ -5010,81 +5010,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!1 &112502020
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 112502023}
-  - component: {fileID: 112502022}
-  - component: {fileID: 112502021}
-  m_Layer: 0
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &112502021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112502020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &112502022
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112502020}
-  m_CullTransparentMesh: 1
---- !u!224 &112502023
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112502020}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1342346773}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &113402626
 GameObject:
   m_ObjectHideFlags: 0
@@ -30300,6 +30225,63 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1001 &590707865
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3650959222205025353, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 52.9286
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650959222205025353, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.59135
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650959222205025353, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.4599
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650959222205025353, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650959222205025353, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650959222205025353, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650959222205025353, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650959222205025353, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650959222205025353, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650959222205025353, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877973568730898179, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_Name
+      value: SceneTransition
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
 --- !u!1 &595545900
 GameObject:
   m_ObjectHideFlags: 0
@@ -33111,7 +33093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -33146,7 +33128,6 @@ GameObject:
   m_Component:
   - component: {fileID: 726916320}
   - component: {fileID: 726916319}
-  - component: {fileID: 726916321}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -33179,24 +33160,9 @@ Transform:
   m_LocalPosition: {x: 692.50714, y: 0.00003, z: 11157.5625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1342346773}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &726916321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726916318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f7f9b8d093b184aadbeaa59fdf65ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneController
-  fadeImage: {fileID: 112502021}
-  transitionTime: 0.5
 --- !u!1 &745917934
 GameObject:
   m_ObjectHideFlags: 0
@@ -38101,123 +38067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceb0ac1d9b429d40821084fa6837710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstDayTutorial
-  steps:
-  - message: 'The conflict has escalated beyond what we could have imagined, the
-      weapons shortage has reached an all time high. Your Current objective is to
-      maximise profit, the outcome of this war is irrelevant to us. '
-    completeWhen: 0
-    requiredItem: {fileID: 0}
-    requiredCount: 0
-    highlightTarget: {fileID: 0}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: 'Focus on incoming orders from both factions. You will need to be quick,
-      hold Shift to sprint. '
-    completeWhen: 1
-    requiredItem: {fileID: 0}
-    requiredCount: 0
-    highlightTarget: {fileID: 0}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: 'Here''s your first customer. Every order will show at the top of your
-      screen, you can complete an order by bringing it to the delivery desk at the
-      front.   '
-    completeWhen: 0
-    requiredItem: {fileID: 0}
-    requiredCount: 0
-    highlightTarget: {fileID: 714998629}
-    startTutorialOrder: {fileID: 11400000, guid: 845600de5ea8cdc458d39ee525ec1d1e, type: 2}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: 'To make the sword you will need to smelt some copper. Press E at the
-      "Raw Copper" box. '
-    completeWhen: 2
-    requiredItem: {fileID: 11400000, guid: 843bf084d83a7784ab590f684366fbac, type: 2}
-    requiredCount: 0
-    highlightTarget: {fileID: 177322610}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: Pick up the ore and drop it into the forge.
-    completeWhen: 5
-    requiredItem: {fileID: 11400000, guid: 843bf084d83a7784ab590f684366fbac, type: 2}
-    requiredCount: 0
-    highlightTarget: {fileID: 1256748781}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: 'The ore will take a few seconds to smelt, you can see if an ore is
-      smelting by placing your cursor over the forge. '
-    completeWhen: 6
-    requiredItem: {fileID: 11400000, guid: 7009539e87d0ac941a47c2930e29db5f, type: 2}
-    requiredCount: 0
-    highlightTarget: {fileID: 1256748781}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: 'Take the ingot from the forge. '
-    completeWhen: 3
-    requiredItem: {fileID: 11400000, guid: 7009539e87d0ac941a47c2930e29db5f, type: 2}
-    requiredCount: 0
-    highlightTarget: {fileID: 1256748781}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: Next, you will need to grab a stick from the stick box.
-    completeWhen: 3
-    requiredItem: {fileID: 11400000, guid: 2b7d0144522d79c4fa7f683d50516e5a, type: 2}
-    requiredCount: 0
-    highlightTarget: {fileID: 113402633}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: 'Now, place both parts on the workbench. '
-    completeWhen: 4
-    requiredItem: {fileID: 0}
-    requiredCount: 2
-    highlightTarget: {fileID: 653223481}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: 'Finally, press E while looking at the workbench to craft.  '
-    completeWhen: 7
-    requiredItem: {fileID: 11400000, guid: ea084adb0cd84c946b0ef8c15fa980bc, type: 2}
-    requiredCount: 0
-    highlightTarget: {fileID: 653223481}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: 'Now, deliver your finished item to the front desk '
-    completeWhen: 8
-    requiredItem: {fileID: 11400000, guid: ea084adb0cd84c946b0ef8c15fa980bc, type: 2}
-    requiredCount: 0
-    highlightTarget: {fileID: 714998629}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
-  - message: If you make a mistake, you may discard items in the tash, but remember
-      customers won't wait forever.
-    completeWhen: 0
-    requiredItem: {fileID: 0}
-    requiredCount: 0
-    highlightTarget: {fileID: 0}
-    startTutorialOrder: {fileID: 0}
-    onStepStart:
-      m_PersistentCalls:
-        m_Calls: []
+  steps: []
   tutorialPanel: {fileID: 1200332906}
   messageText: {fileID: 1464239685}
   hintText: {fileID: 219484070}
@@ -53220,108 +53070,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!1 &1342346772
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1342346773}
-  - component: {fileID: 1342346776}
-  - component: {fileID: 1342346775}
-  - component: {fileID: 1342346774}
-  m_Layer: 0
-  m_Name: Canvas (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1342346773
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342346772}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 112502023}
-  m_Father: {fileID: 726916320}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &1342346774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342346772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1342346775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342346772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &1342346776
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342346772}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 99
-  m_TargetDisplay: 0
 --- !u!43 &1344345009
 Mesh:
   m_ObjectHideFlags: 0
@@ -70270,8 +70018,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -82642,6 +82390,7 @@ MonoBehaviour:
   npcPrefabVariant: {fileID: 2601160151660098259, guid: 6a023b6735a08df4d95c47261efdc572, type: 3}
   npcSpawnPoint: {fileID: 691452141}
   variantSpawnChance: 0.5
+  maxArrivalWait: 15
   strikeTextUI: {fileID: 623654481}
   maxStrikes: 3
   timeBetweenCustomers: 3
@@ -86474,3 +86223,4 @@ SceneRoots:
   - {fileID: 608151557}
   - {fileID: 2075952778}
   - {fileID: 558412059}
+  - {fileID: 590707865}

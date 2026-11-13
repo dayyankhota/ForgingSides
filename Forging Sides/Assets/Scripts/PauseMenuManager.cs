@@ -7,19 +7,20 @@ public class PauseMenuManager : MonoBehaviour
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
 
+    private void Awake()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
+    }
+
     public void OnPause(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            if (isPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        if (!context.started) return;
+
+        if (DeliveryDesk.GameEnded) return;
+
+        if (isPaused) Resume();
+        else Pause();
     }
 
     public void Resume()
@@ -44,10 +45,8 @@ public class PauseMenuManager : MonoBehaviour
 
     public void QuitToMainMenu()
     {
-      
         Time.timeScale = 1f;
-
-      
+        isPaused = false;
         SceneManager.LoadScene("MainMenu");
     }
 }

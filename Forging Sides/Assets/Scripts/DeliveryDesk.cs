@@ -7,10 +7,7 @@ using UnityEngine.InputSystem;
 
 public class DeliveryDesk : MonoBehaviour
 {
-    private SceneController levelCheck;
-
-    private Animator animator;
-    AudioManager audioManager;
+    private AudioManager audioManager;
     public Transform destinationSpot;
 
     [SerializeField] ParticleSystem coinParticle = null;
@@ -31,6 +28,9 @@ public class DeliveryDesk : MonoBehaviour
     [Range(0f, 1f)]
     public float variantSpawnChance = 0.5f;
 
+    [Header("NPC Arrival")]
+    public float maxArrivalWait = 15f;
+
     [Header("Lose Condition")]
     public TextMeshProUGUI strikeTextUI;
     private int strikes = 0;
@@ -49,17 +49,39 @@ public class DeliveryDesk : MonoBehaviour
     public int ordersToWin = 2;
     private int completedOrders = 0;
 
+    [Header("Win Screen (last level only)")]
+    public GameObject winPanel;
+    public string restartSceneName = "Level1";
+    public bool quitToMainMenu = false;
+    public string mainMenuSceneName = "MainMenu";
+    private bool hasWon = false;
+    private bool isLeaving = false;
+
+
+    public static bool GameEnded { get; private set; }
+
     [Header("Tutorial")]
-    [Tooltip("If true, customers don't arrive until StartShift() is called (by the tutorial).")]
     public bool waitForTutorial = false;
     private bool tutorialOrderActive = false;
     private bool shiftStarted = false;
+    private Coroutine tutorialOrderRoutine;
+
+    private readonly List<CraftingPart> partsOnDesk = new List<CraftingPart>();
+
+    private void Awake()
+    {
+        GameEnded = false;
+    }
 
     private void Start()
     {
+        if (winPanel != null) winPanel.SetActive(false);
+
+        GameObject audioObj = GameObject.FindGameObjectWithTag("Audio");
+        if (audioObj != null) audioManager = audioObj.GetComponent<AudioManager>();
+
         if (waitForTutorial)
         {
-            audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
             orderTextUI.text = "";
             if (timerTextUI != null) timerTextUI.text = "";
         }
@@ -73,6 +95,12 @@ public class DeliveryDesk : MonoBehaviour
     {
         if (shiftStarted) return;
         shiftStarted = true;
+
+        if (tutorialOrderRoutine != null)
+        {
+            StopCoroutine(tutorialOrderRoutine);
+            tutorialOrderRoutine = null;
+        }
 
         if (tutorialOrderActive)
         {
@@ -90,46 +118,105 @@ public class DeliveryDesk : MonoBehaviour
 
         tutorialOrderActive = true;
 
+        if (tutorialOrderRoutine != null) StopCoroutine(tutorialOrderRoutine);
+        tutorialOrderRoutine = StartCoroutine(TutorialOrderRoutine(recipe));
+    }
+
+    private IEnumerator TutorialOrderRoutine(RecipeData recipe)
+    {
+        currentOrder = null;
+        isTimerRunning = false;
+        if (timerTextUI != null) timerTextUI.text = "";
+
         if (npcPrefab != null && currentNPC == null)
             currentNPC = Instantiate(npcPrefab, npcSpawnPoint.position, npcSpawnPoint.rotation);
+
+        orderTextUI.text = "A customer is approaching...";
+        yield return WaitForNPCArrival();
 
         currentOrder = recipe;
         orderTextUI.text = "Order: " + recipe.craftedWeapon.itemName;
         if (timerTextUI != null) timerTextUI.text = "No rush!";
-        isTimerRunning = false;
-    }
+        tutorialOrderRoutine = null;
 
+        CheckItemsAlreadyOnDesk();
+    }
 
     private IEnumerator SpawnNewCustomer()
     {
         orderTextUI.text = "Waiting for customer...";
+        if (timerTextUI != null) timerTextUI.text = "";
         yield return new WaitForSeconds(timeBetweenCustomers);
+
         GameObject prefabToSpawn = npcPrefab;
         if (npcPrefabVariant != null && Random.value <= variantSpawnChance)
-        {
             prefabToSpawn = npcPrefabVariant;
-        }
 
-        if (npcPrefab != null)
+        if (prefabToSpawn != null)
         {
             currentNPC = Instantiate(prefabToSpawn, npcSpawnPoint.position, npcSpawnPoint.rotation);
+            orderTextUI.text = "A customer is approaching...";
+            yield return WaitForNPCArrival();
         }
-               MoveToSpot movement = currentNPC.GetComponent<MoveToSpot>();
- 
+
+        if (isGameOver) yield break;
+
         currentOrder = possibleOrders[Random.Range(0, possibleOrders.Count)];
         orderTextUI.text = "Order: " + currentOrder.craftedWeapon.itemName;
         timer = timePerOrder;
         isTimerRunning = true;
+
+        CheckItemsAlreadyOnDesk();
+    }
+
+    private IEnumerator WaitForNPCArrival()
+    {
+        if (currentNPC == null) yield break;
+
+        MoveToSpot mover = currentNPC.GetComponent<MoveToSpot>();
+        if (mover == null) yield break;
+
+        float waited = 0f;
+        while (currentNPC != null && !mover.HasArrived && waited < maxArrivalWait)
+        {
+            waited += Time.deltaTime;
+            yield return null;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (currentOrder == null) return;
+        CraftingPart part = other.GetComponent<CraftingPart>();
+        if (part == null) return;
 
-        CraftingPart deliveredPart = other.GetComponent<CraftingPart>();
-        if (deliveredPart == null) return;
+        if (!partsOnDesk.Contains(part)) partsOnDesk.Add(part);
+        TryDeliver(part);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        CraftingPart part = other.GetComponent<CraftingPart>();
+        if (part != null) partsOnDesk.Remove(part);
+    }
+
+
+    private void CheckItemsAlreadyOnDesk()
+    {
+        partsOnDesk.RemoveAll(p => p == null);
+
+        foreach (CraftingPart part in new List<CraftingPart>(partsOnDesk))
+        {
+            if (currentOrder == null) break;
+            TryDeliver(part);
+        }
+    }
+
+    private void TryDeliver(CraftingPart deliveredPart)
+    {
+        if (currentOrder == null || deliveredPart == null) return;
 
         bool correct = deliveredPart.itemData == currentOrder.craftedWeapon;
+        partsOnDesk.Remove(deliveredPart);
 
         if (tutorialOrderActive)
         {
@@ -137,11 +224,10 @@ public class DeliveryDesk : MonoBehaviour
 
             if (correct)
             {
-                
                 tutorialOrderActive = false;
                 currentOrder = null;
                 if (currentNPC != null) Destroy(currentNPC);
-                audioManager.PlaySFX(audioManager.CustomerSuccess);
+                PlaySFX(audioManager != null ? audioManager.CustomerSuccess : null);
                 if (coinParticle != null) coinParticle.Play();
                 orderTextUI.text = "Order Completed!";
                 if (timerTextUI != null) timerTextUI.text = "";
@@ -150,7 +236,7 @@ public class DeliveryDesk : MonoBehaviour
             else
             {
                 orderTextUI.text = "That's not what they ordered!\nOrder: " + currentOrder.craftedWeapon.itemName;
-                 audioManager.PlaySFX(audioManager.CustomerFail);
+                PlaySFX(audioManager != null ? audioManager.CustomerFail : null);
                 TutorialEvents.Raise(TutorialEventType.WrongDelivery, deliveredPart.itemData);
             }
             return;
@@ -159,13 +245,13 @@ public class DeliveryDesk : MonoBehaviour
         if (correct)
         {
             TutorialEvents.Raise(TutorialEventType.OrderDelivered, deliveredPart.itemData);
-            audioManager.PlaySFX(audioManager.CustomerSuccess);
+            PlaySFX(audioManager != null ? audioManager.CustomerSuccess : null);
             StartCoroutine(CompleteOrderSequence(deliveredPart.gameObject));
         }
         else
         {
             TutorialEvents.Raise(TutorialEventType.WrongDelivery, deliveredPart.itemData);
-            audioManager.PlaySFX(audioManager.CustomerFail);
+            PlaySFX(audioManager != null ? audioManager.CustomerFail : null);
             Destroy(deliveredPart.gameObject);
             HandleStrike();
         }
@@ -177,27 +263,20 @@ public class DeliveryDesk : MonoBehaviour
         currentOrder = null;
         isTimerRunning = false;
 
-        if (currentNPC != null)
-        {
-            Destroy(currentNPC);
-        }
+        if (currentNPC != null) Destroy(currentNPC);
         completedOrders++;
 
         if (completedOrders >= ordersToWin)
         {
-            if (SceneController.instance.IsLastScene())
+            if (SceneController.instance == null || SceneController.instance.IsLastScene())
             {
-                orderTextUI.color = Color.green;
-                orderTextUI.text = "You Win \nPress R to Restart";
-                Time.timeScale = 0f;
-                isGameOver = true;
+                ShowWinScreen();
                 yield break;
             }
             else
             {
                 SceneController.instance.NextLevel();
             }
-
         }
         else
         {
@@ -220,24 +299,81 @@ public class DeliveryDesk : MonoBehaviour
             orderTextUI.color = Color.red;
             Time.timeScale = 0f;
             isGameOver = true;
+            GameEnded = true;
+        }
+        else if (timer <= 0)
+        {
+            if (currentNPC != null) Destroy(currentNPC);
+            currentOrder = null;
+            StartCoroutine(SpawnNewCustomer());
+        }
+    }
+
+    private void PlaySFX(AudioClip clip)
+    {
+        if (audioManager != null && clip != null) audioManager.PlaySFX(clip);
+    }
+
+    private void ShowWinScreen()
+    {
+        hasWon = true;
+        isGameOver = true;
+        GameEnded = true;
+        isTimerRunning = false;
+
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+            orderTextUI.text = "";
+            if (timerTextUI != null) timerTextUI.text = "";
         }
         else
         {
-            if (timer <= 0)
-            {
-                if (currentNPC != null) Destroy(currentNPC);
-                currentOrder = null;
-                StartCoroutine(SpawnNewCustomer());
-            }
+            orderTextUI.color = Color.green;
+            orderTextUI.text = "You Win!\nPress R to Restart or Q to Quit";
         }
+
+        Time.timeScale = 0f;
+    }
+
+    private void LoadSceneByName(string sceneName)
+    {
+        isLeaving = true;
+        Time.timeScale = 1f;
+
+        if (SceneController.instance != null) SceneController.instance.LoadScene(sceneName);
+        else SceneManager.LoadScene(sceneName);
+    }
+
+    private void QuitGame()
+    {
+        if (quitToMainMenu)
+        {
+            LoadSceneByName(mainMenuSceneName);
+            return;
+        }
+
+        isLeaving = true;
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
     private void Update()
     {
-        if (isGameOver && Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
+        Keyboard kb = Keyboard.current;
+        if (isGameOver && !isLeaving && kb != null)
         {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (kb.rKey.wasPressedThisFrame)
+            {
+                LoadSceneByName(hasWon ? restartSceneName : SceneManager.GetActiveScene().name);
+            }
+            else if (hasWon && kb.qKey.wasPressedThisFrame)
+            {
+                QuitGame();
+            }
         }
 
         if (isTimerRunning && !isGameOver)

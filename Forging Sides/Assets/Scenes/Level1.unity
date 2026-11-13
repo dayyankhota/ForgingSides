@@ -82572,7 +82572,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b68f547987fcd6047bd36e33ef6f7875, type: 2}
   orderTextUI: {fileID: 2073646939}
   npcPrefab: {fileID: 9072670403721885275, guid: 9880f3a996ecddf4988c71c27c63f915, type: 3}
+  npcPrefabVariant: {fileID: 2601160151660098259, guid: 6a023b6735a08df4d95c47261efdc572, type: 3}
   npcSpawnPoint: {fileID: 691452141}
+  variantSpawnChance: 0.5
   strikeTextUI: {fileID: 623654481}
   maxStrikes: 3
   timeBetweenCustomers: 3

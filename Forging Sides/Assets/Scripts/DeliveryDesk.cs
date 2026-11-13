@@ -25,8 +25,11 @@ public class DeliveryDesk : MonoBehaviour
 
     [Header("NPC Spawning")]
     public GameObject npcPrefab;
+    public GameObject npcPrefabVariant;
     public Transform npcSpawnPoint;
     private GameObject currentNPC;
+    [Range(0f, 1f)]
+    public float variantSpawnChance = 0.5f;
 
     [Header("Lose Condition")]
     public TextMeshProUGUI strikeTextUI;
@@ -101,10 +104,15 @@ public class DeliveryDesk : MonoBehaviour
     {
         orderTextUI.text = "Waiting for customer...";
         yield return new WaitForSeconds(timeBetweenCustomers);
+        GameObject prefabToSpawn = npcPrefab;
+        if (npcPrefabVariant != null && Random.value <= variantSpawnChance)
+        {
+            prefabToSpawn = npcPrefabVariant;
+        }
 
         if (npcPrefab != null)
         {
-            currentNPC = Instantiate(npcPrefab, npcSpawnPoint.position, npcSpawnPoint.rotation);
+            currentNPC = Instantiate(prefabToSpawn, npcSpawnPoint.position, npcSpawnPoint.rotation);
         }
                MoveToSpot movement = currentNPC.GetComponent<MoveToSpot>();
  

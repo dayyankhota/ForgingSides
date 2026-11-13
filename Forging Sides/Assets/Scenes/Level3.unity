@@ -31515,6 +31515,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 845600de5ea8cdc458d39ee525ec1d1e, type: 2}
   - {fileID: 11400000, guid: 5bfbc84cb5927054abc55a68ea9c820e, type: 2}
   - {fileID: 11400000, guid: b57b87c8ec31acd48b6246bf89bf466b, type: 2}
+  - {fileID: 11400000, guid: c483727d6d9cff34086aa2541745268f, type: 2}
   spawnPoint: {fileID: 1827076321}
   slots:
   - {fileID: 408114893}
@@ -82491,7 +82492,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b676cf38e815e534da7b784c1200edc0, type: 2}
   orderTextUI: {fileID: 2073646939}
   npcPrefab: {fileID: 9072670403721885275, guid: 9880f3a996ecddf4988c71c27c63f915, type: 3}
+  npcPrefabVariant: {fileID: 2601160151660098259, guid: 6a023b6735a08df4d95c47261efdc572, type: 3}
   npcSpawnPoint: {fileID: 691452141}
+  variantSpawnChance: 0.5
   strikeTextUI: {fileID: 623654481}
   maxStrikes: 3
   timeBetweenCustomers: 3

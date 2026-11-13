@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 51047b31f69cee44db84469de0de36fd
+ModelImporter:
+  serializedVersion: 24300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: e91666761403edf47aca983e11ed3a63, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+    searchTexturesGlobally: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Armature|Walk_Finalised' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Bn_DEF_Hip' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|check time
+      takeName: Armature|check time
+      internalID: -2193818751431157317
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Grab.001
+      takeName: Armature|Grab.001
+      internalID: 1459465184676252228
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Idle_Finalised
+      takeName: Armature|Idle_Finalised
+      internalID: 6468664838706180649
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Walk_Finalised
+      takeName: Armature|Walk_Finalised
+      internalID: 4704372745837253893
+      firstFrame: 0
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Bn_Mech_Hip
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_Thigh.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_Thigh.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_Shin.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_Shin.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_Foot.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_Foot.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_Chest
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_Clav.L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_Clav.R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_upperArm.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_upperArm.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_lowerArm.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_lowerArm.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_Hand.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_Hand.R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_Toes.L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bn_DEF_FK_Toes.R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Ben_Schmidt_Group28_A4_NPC(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: Ben_Schmidt_Group28_A4_NPC(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bn_MECH_root
+      parentName: Armature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.00000008940697, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: Bn_Mech_Hip
+      parentName: Bn_MECH_root
+      position: {x: -0, y: -0.22665, z: 3.6044252}
+      rotation: {x: 0.7071068, y: -0.0000000842937, z: -0.0000000842937, w: 0.7071068}
+      scale: {x: 1, y: 0.99999964, z: 0.99999964}
+    - name: Bn_DEF_Spine
+      parentName: Bn_Mech_Hip
+      position: {x: -0, y: 0.47300076, z: 0}
+      rotation: {x: -0.026611, y: -4.973799e-14, z: 0.000000006344564, w: 0.99964595}
+      scale: {x: 1, y: 0.9999998, z: 0.9999999}
+    - name: Bn_DEF_Chest
+      parentName: Bn_DEF_Spine
+      position: {x: -3.5527137e-15, y: 0.8394602, z: 0}
+      rotation: {x: -0.0136560965, y: 2.1563575e-14, z: 0.0000000032558611, w: 0.9999068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bn_DEF_Neck
+      parentName: Bn_DEF_Chest
+      position: {x: 5.309322e-15, y: 1.3481568, z: -0.000000044703484}
+      rotation: {x: 0.040259775, y: 2.8434154e-14, z: -0.000000009598679, w: 0.99918926}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Bn_DEF_Head
+      parentName: Bn_DEF_Neck
+      position: {x: 2.6391768e-16, y: 0.58082724, z: 0.0000000011897754}
+      rotation: {x: -0, y: 7.072948e-15, z: -4.100984e-15, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Bn_DEF_Clav.L
+      parentName: Bn_DEF_Chest
+      position: {x: -0.15536962, y: 0.8845895, z: 0.22918904}
+      rotation: {x: -0.10959187, y: -0.12171973, z: 0.6897917, w: 0.7052386}
+      scale: {x: 1.0000006, y: 1.0000004, z: 1}
+    - name: Bn_DEF_FK_upperArm.L
+      parentName: Bn_DEF_Clav.L
+      position: {x: -0.0000007834751, y: 0.7313123, z: 0.000000070780516}
+      rotation: {x: 0.16477816, y: -0.05619381, z: 0.021705862, w: 0.9844893}
+      scale: {x: 1.0000001, y: 1.0000007, z: 0.99999994}
+    - name: Bn_DEF_FK_lowerArm.L
+      parentName: Bn_DEF_FK_upperArm.L
+      position: {x: 0.000000259839, y: 0.8369579, z: 0.000000033527613}
+      rotation: {x: 0.030484293, y: 0.008019128, z: -0.006789113, w: 0.99948}
+      scale: {x: 1.0000007, y: 1.0000005, z: 0.99999994}
+    - name: Bn_DEF_Hand.L
+      parentName: Bn_DEF_FK_lowerArm.L
+      position: {x: -0.000000016763806, y: 1.1088443, z: 0.00000011874363}
+      rotation: {x: 0.030278184, y: -0.0013141996, z: -0.010647043, w: 0.99948394}
+      scale: {x: 0.9999998, y: 0.9999996, z: 0.99999976}
+    - name: Bn_DEF_Clav.R
+      parentName: Bn_DEF_Chest
+      position: {x: 0.16126382, y: 0.8821249, z: 0.25346145}
+      rotation: {x: -0.108402416, y: 0.120557904, z: -0.6900246, w: 0.705394}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+    - name: Bn_DEF_FK_upperArm.R
+      parentName: Bn_DEF_Clav.R
+      position: {x: -0.0000010945369, y: 0.7411406, z: -0.000000011175871}
+      rotation: {x: -0.16469978, y: -0.06325987, z: 0.02047578, w: -0.9841001}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+    - name: Bn_DEF_FK_lowerArm.R
+      parentName: Bn_DEF_FK_upperArm.R
+      position: {x: 0.00000020954758, y: 0.8369586, z: -0.000000026077032}
+      rotation: {x: 0.029688418, y: -0.007978808, z: 0.0067354986, w: 0.9995047}
+      scale: {x: 1.000001, y: 1.000001, z: 0.99999976}
+    - name: Bn_DEF_Hand.R
+      parentName: Bn_DEF_FK_lowerArm.R
+      position: {x: -0.000000007450581, y: 1.1088452, z: 0.000000013969839}
+      rotation: {x: 0.030278303, y: 0.0013144776, z: 0.010646833, w: 0.999484}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: Bn_DEF_Hip
+      parentName: Bn_Mech_Hip
+      position: {x: -0, y: 0.47300076, z: 0}
+      rotation: {x: 1, y: -0, z: -0.00000019470718, w: 0}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bn_DEF_FK_Thigh.L
+      parentName: Bn_DEF_Hip
+      position: {x: -0.41914102, y: 0.35761118, z: 0.16949064}
+      rotation: {x: -0.05700578, y: -0.0018950212, z: 0.014262861, w: 0.99827015}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
+    - name: Bn_DEF_FK_Shin.L
+      parentName: Bn_DEF_FK_Thigh.L
+      position: {x: 0.000000015133992, y: 1.6434358, z: 0.0000000013969839}
+      rotation: {x: 0.14087105, y: 0.013591634, z: -0.022195669, w: 0.98968583}
+      scale: {x: 1.0000002, y: 1, z: 0.9999999}
+    - name: Bn_DEF_FK_Foot.L
+      parentName: Bn_DEF_FK_Shin.L
+      position: {x: -0.000000028871, y: 1.7648097, z: -0.000000018626451}
+      rotation: {x: -0.63529277, y: -0.020996006, z: -0.007145287, w: 0.7719529}
+      scale: {x: 0.9999995, y: 1, z: 1.0000019}
+    - name: Bn_DEF_FK_Toes.L
+      parentName: Bn_DEF_FK_Foot.L
+      position: {x: -0.000000011175871, y: 0.6977012, z: -0.000000036488927}
+      rotation: {x: -0.1277122, y: -0.00089083787, z: 0.010159026, w: 0.9917589}
+      scale: {x: 1, y: 1.0000004, z: 1.0000005}
+    - name: Bn_DEF_FK_Thigh.R
+      parentName: Bn_DEF_Hip
+      position: {x: 0.4250352, y: 0.3581152, z: 0.16843733}
+      rotation: {x: -0.05700579, y: 0.0018951553, z: -0.014262852, w: 0.99827015}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
+    - name: Bn_DEF_FK_Shin.R
+      parentName: Bn_DEF_FK_Thigh.R
+      position: {x: 0.000000013038516, y: 1.6434356, z: -0.00000002863817}
+      rotation: {x: 0.14087105, y: -0.013591609, z: 0.022195658, w: 0.98968583}
+      scale: {x: 1, y: 1.0000001, z: 0.99999964}
+    - name: Bn_DEF_FK_Foot.R
+      parentName: Bn_DEF_FK_Shin.R
+      position: {x: -0.000000026193447, y: 1.76481, z: 0.000000008381903}
+      rotation: {x: -0.6352927, y: 0.020996025, z: 0.007145264, w: 0.77195287}
+      scale: {x: 0.99999976, y: 1.0000006, z: 1.0000014}
+    - name: Bn_DEF_FK_Toes.R
+      parentName: Bn_DEF_FK_Foot.R
+      position: {x: 0.000000008905772, y: 0.6977013, z: -0.000000045565685}
+      rotation: {x: -0.12771218, y: 0.0008907913, z: -0.010159031, w: 0.9917589}
+      scale: {x: 0.99999994, y: 1.0000005, z: 1.0000005}
+    - name: Plane
+      parentName: Ben_Schmidt_Group28_A4_NPC(Clone)
+      position: {x: -0.000009834766, y: -0.005689168, z: 2.8049763e-34}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

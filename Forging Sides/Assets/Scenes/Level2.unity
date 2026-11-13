@@ -30044,6 +30044,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3385208043655197648, guid: 9880f3a996ecddf4988c71c27c63f915, type: 3}
+    - {fileID: 2752347139446476147, guid: 9880f3a996ecddf4988c71c27c63f915, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9880f3a996ecddf4988c71c27c63f915, type: 3}
@@ -47597,9 +47598,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   musicSource: {fileID: 1535887918}
   SFXSource: {fileID: 1604872131}
-  steamEffect: {fileID: 8300000, guid: 230acb5787c542045993ffe430a85bcf, type: 3}
+  steamEffect: {fileID: 8300000, guid: f33bb7a36cdc88d47b44caab0bcbae18, type: 3}
   metalClang: {fileID: 8300000, guid: 1b4ce42306556554b844f6b799f9533e, type: 3}
-  waterDrop: {fileID: 8300000, guid: 366f35e6bfbf6054bbf1e02690fac541, type: 3}
+  waterDrop: {fileID: 8300000, guid: 94d6d8fac0bffdc4798ef71bf0c5be97, type: 3}
   Furnace: {fileID: 8300000, guid: bc1313888a761194bbdd22d49aba4cf4, type: 3}
   BoxInteract: {fileID: 8300000, guid: 688f08b3a68f44942aef0782d398a786, type: 3}
   CustomerSuccess: {fileID: 8300000, guid: 9221dbe5ff597bd44a8ae15936592495, type: 3}
@@ -61154,7 +61155,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 25
+  m_Intensity: 75
   m_Range: 39.66941
   m_SpotAngle: 179
   m_InnerSpotAngle: 76.94528
@@ -61217,7 +61218,7 @@ Transform:
   m_GameObject: {fileID: 1799027981}
   serializedVersion: 2
   m_LocalRotation: {x: 0.59753555, y: 0.26014218, z: -0.2366031, w: 0.7206222}
-  m_LocalPosition: {x: 68.62, y: 10.1, z: -19.22}
+  m_LocalPosition: {x: 75.48, y: 10.1, z: -21.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82381,10 +82382,10 @@ MonoBehaviour:
   destinationSpot: {fileID: 0}
   coinParticle: {fileID: 1980445891}
   possibleOrders:
-  - {fileID: 11400000, guid: cb6cca4c75015b346be87e2260486b24, type: 2}
+  - {fileID: 11400000, guid: c483727d6d9cff34086aa2541745268f, type: 2}
   - {fileID: 11400000, guid: a698f3af4cbf91a448f6f7bfa9902ae5, type: 2}
   - {fileID: 11400000, guid: b68f547987fcd6047bd36e33ef6f7875, type: 2}
-  - {fileID: 11400000, guid: c483727d6d9cff34086aa2541745268f, type: 2}
+  - {fileID: 11400000, guid: 845600de5ea8cdc458d39ee525ec1d1e, type: 2}
   orderTextUI: {fileID: 2073646939}
   npcPrefab: {fileID: 9072670403721885275, guid: 9880f3a996ecddf4988c71c27c63f915, type: 3}
   npcPrefabVariant: {fileID: 2601160151660098259, guid: 6a023b6735a08df4d95c47261efdc572, type: 3}
@@ -82398,6 +82399,10 @@ MonoBehaviour:
   timerTextUI: {fileID: 1771531003}
   timePerOrder: 45
   ordersToWin: 4
+  winPanel: {fileID: 0}
+  restartSceneName: Level1
+  quitToMainMenu: 0
+  mainMenuSceneName: MainMenu
   waitForTutorial: 1
 --- !u!1 &2073646937
 GameObject:

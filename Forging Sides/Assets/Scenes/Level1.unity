@@ -47535,7 +47535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.05490196}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -47591,9 +47591,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   musicSource: {fileID: 1535887918}
   SFXSource: {fileID: 1604872131}
-  steamEffect: {fileID: 8300000, guid: 230acb5787c542045993ffe430a85bcf, type: 3}
+  steamEffect: {fileID: 8300000, guid: f33bb7a36cdc88d47b44caab0bcbae18, type: 3}
   metalClang: {fileID: 8300000, guid: 1b4ce42306556554b844f6b799f9533e, type: 3}
-  waterDrop: {fileID: 8300000, guid: 366f35e6bfbf6054bbf1e02690fac541, type: 3}
+  waterDrop: {fileID: 8300000, guid: 94d6d8fac0bffdc4798ef71bf0c5be97, type: 3}
   Furnace: {fileID: 8300000, guid: bc1313888a761194bbdd22d49aba4cf4, type: 3}
   BoxInteract: {fileID: 8300000, guid: 688f08b3a68f44942aef0782d398a786, type: 3}
   CustomerSuccess: {fileID: 8300000, guid: 9221dbe5ff597bd44a8ae15936592495, type: 3}
@@ -61011,7 +61011,7 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 25
+  m_Intensity: 75
   m_Range: 39.66941
   m_SpotAngle: 179
   m_InnerSpotAngle: 76.94528
@@ -61074,7 +61074,7 @@ Transform:
   m_GameObject: {fileID: 1799027981}
   serializedVersion: 2
   m_LocalRotation: {x: 0.59753555, y: 0.26014218, z: -0.2366031, w: 0.7206222}
-  m_LocalPosition: {x: 68.62, y: 10.1, z: -19.22}
+  m_LocalPosition: {x: 75.52, y: 10.1, z: -21.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82390,6 +82390,10 @@ MonoBehaviour:
   timerTextUI: {fileID: 1771531003}
   timePerOrder: 45
   ordersToWin: 3
+  winPanel: {fileID: 0}
+  restartSceneName: Level1
+  quitToMainMenu: 0
+  mainMenuSceneName: MainMenu
   waitForTutorial: 1
 --- !u!1 &2073646937
 GameObject:
@@ -86214,6 +86218,10 @@ PrefabInstance:
     - target: {fileID: 6877973568730898179, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
       propertyPath: m_Name
       value: SceneTransition
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877973568730898179, guid: 304478dd92ef20b43ad7c673d8719c23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

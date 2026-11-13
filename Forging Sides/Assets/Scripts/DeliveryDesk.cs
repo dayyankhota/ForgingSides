@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class DeliveryDesk : MonoBehaviour
 {
+    private SceneController levelCheck;
+
     private Animator animator;
     AudioManager audioManager;
     public Transform destinationSpot;
@@ -41,7 +43,7 @@ public class DeliveryDesk : MonoBehaviour
     private bool isTimerRunning = false;
 
     [Header("Win Condition")]
-    public int ordersToWin = 5;
+    public int ordersToWin = 2;
     private int completedOrders = 0;
 
     [Header("Tutorial")]
@@ -105,10 +107,7 @@ public class DeliveryDesk : MonoBehaviour
             currentNPC = Instantiate(npcPrefab, npcSpawnPoint.position, npcSpawnPoint.rotation);
         }
                MoveToSpot movement = currentNPC.GetComponent<MoveToSpot>();
-       // if (movement != null && destinationSpot != null)
-      //  {
-       //     movement.SetDestination(destinationSpot.position);
-       // }
+ 
         currentOrder = possibleOrders[Random.Range(0, possibleOrders.Count)];
         orderTextUI.text = "Order: " + currentOrder.craftedWeapon.itemName;
         timer = timePerOrder;
@@ -178,13 +177,19 @@ public class DeliveryDesk : MonoBehaviour
 
         if (completedOrders >= ordersToWin)
         {
-            orderTextUI.text = "YOU WIN!\nPress R to Restart";
-            orderTextUI.color = Color.green;
+            if (SceneController.instance.IsLastScene())
+            {
+                orderTextUI.color = Color.green;
+                orderTextUI.text = "You Win \nPress R to Restart";
+                Time.timeScale = 0f;
+                isGameOver = true;
+                yield break;
+            }
+            else
+            {
+                SceneController.instance.NextLevel();
+            }
 
-            Time.timeScale = 0f;
-            isGameOver = true;
-
-            yield break;
         }
         else
         {

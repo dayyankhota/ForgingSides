@@ -35,6 +35,7 @@ public class DeliveryDesk : MonoBehaviour
     public TextMeshProUGUI strikeTextUI;
     private int strikes = 0;
     public int maxStrikes = 3;
+    public GameObject gameOverPanel;
 
     public float timeBetweenCustomers = 3f;
     public float successMessageDuration = 2f;
@@ -57,7 +58,6 @@ public class DeliveryDesk : MonoBehaviour
     private bool hasWon = false;
     private bool isLeaving = false;
 
-
     public static bool GameEnded { get; private set; }
 
     [Header("Tutorial")]
@@ -66,6 +66,7 @@ public class DeliveryDesk : MonoBehaviour
     private bool shiftStarted = false;
     private Coroutine tutorialOrderRoutine;
 
+ 
     private readonly List<CraftingPart> partsOnDesk = new List<CraftingPart>();
 
     private void Awake()
@@ -76,6 +77,7 @@ public class DeliveryDesk : MonoBehaviour
     private void Start()
     {
         if (winPanel != null) winPanel.SetActive(false);
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
 
         GameObject audioObj = GameObject.FindGameObjectWithTag("Audio");
         if (audioObj != null) audioManager = audioObj.GetComponent<AudioManager>();
@@ -161,6 +163,7 @@ public class DeliveryDesk : MonoBehaviour
 
         if (isGameOver) yield break;
 
+    
         currentOrder = possibleOrders[Random.Range(0, possibleOrders.Count)];
         orderTextUI.text = "Order: " + currentOrder.craftedWeapon.itemName;
         timer = timePerOrder;
@@ -174,7 +177,7 @@ public class DeliveryDesk : MonoBehaviour
         if (currentNPC == null) yield break;
 
         MoveToSpot mover = currentNPC.GetComponent<MoveToSpot>();
-        if (mover == null) yield break;
+        if (mover == null) yield break; 
 
         float waited = 0f;
         while (currentNPC != null && !mover.HasArrived && waited < maxArrivalWait)
@@ -198,7 +201,6 @@ public class DeliveryDesk : MonoBehaviour
         CraftingPart part = other.GetComponent<CraftingPart>();
         if (part != null) partsOnDesk.Remove(part);
     }
-
 
     private void CheckItemsAlreadyOnDesk()
     {
@@ -295,11 +297,7 @@ public class DeliveryDesk : MonoBehaviour
 
         if (strikes >= maxStrikes)
         {
-            orderTextUI.text = "GAME OVER\nPress R to Restart";
-            orderTextUI.color = Color.red;
-            Time.timeScale = 0f;
-            isGameOver = true;
-            GameEnded = true;
+            ShowGameOverScreen();
         }
         else if (timer <= 0)
         {
@@ -312,6 +310,27 @@ public class DeliveryDesk : MonoBehaviour
     private void PlaySFX(AudioClip clip)
     {
         if (audioManager != null && clip != null) audioManager.PlaySFX(clip);
+    }
+
+    private void ShowGameOverScreen()
+    {
+        isGameOver = true;
+        GameEnded = true;
+        isTimerRunning = false;
+
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+            orderTextUI.text = "";
+            if (timerTextUI != null) timerTextUI.text = "";
+        }
+        else
+        {
+            orderTextUI.text = "GAME OVER\nPress R to Restart";
+            orderTextUI.color = Color.red;
+        }
+
+        Time.timeScale = 0f;
     }
 
     private void ShowWinScreen()
@@ -355,7 +374,7 @@ public class DeliveryDesk : MonoBehaviour
 
         isLeaving = true;
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false; 
 #else
         Application.Quit();
 #endif
@@ -370,7 +389,7 @@ public class DeliveryDesk : MonoBehaviour
             {
                 LoadSceneByName(hasWon ? restartSceneName : SceneManager.GetActiveScene().name);
             }
-            else if (hasWon && kb.qKey.wasPressedThisFrame)
+            else if (kb.qKey.wasPressedThisFrame)
             {
                 QuitGame();
             }
